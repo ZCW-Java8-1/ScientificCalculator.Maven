@@ -1,15 +1,20 @@
-package ScientificCalculator.Maven.src.test.java.com.zipcodewilmington.scientific_calculator;
+package com.zipcodewilmington.scientific_calculator;
 
+import com.zipcodewilmington.scientificcalculator.BasicCalculator;
+import org.junit.Before;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class TestBasicCalculator {
+
+    BasicCalculator calc = new BasicCalculator();
+
     @Test
     public void testAddition() {
         double expected = 21;
         int x = 12;
         int y = 9;
-        double actual = BasicCalculator.add(x, y);
+        double actual = calc.add(x, y);
         Assertions.assertEquals(expected, actual);
 
     }
@@ -19,7 +24,7 @@ public class TestBasicCalculator {
         double expected = 15;
         int x = 20;
         int y = 5;
-        double actual = BasicCalculator.subtract(x, y);
+        double actual = calc.subtract(x, y);
         Assertions.assertEquals(expected, actual);
 
     }
@@ -29,7 +34,7 @@ public class TestBasicCalculator {
         double expected = 40;
         int x = 10;
         int y = 4;
-        double actual = BasicCalculator.multiply(x, y);
+        double actual = calc.multiply(x, y);
         Assertions.assertEquals(expected, actual);
 
     }
@@ -39,7 +44,7 @@ public class TestBasicCalculator {
         double expected = 27;
         int x = 54;
         int y = 2;
-        double actual = BasicCalculator.divide(x, y);
+        double actual = calc.divide(x, y);
         Assertions.assertEquals(expected, actual);
     }
 
@@ -48,10 +53,8 @@ public class TestBasicCalculator {
         double expected = 0;
         int x = 50;
         int y = 5;
-        double actual = BasicCalculator.modulus(x, y);
+        double actual = calc.modulus(x, y);
         Assertions.assertEquals(expected, actual);
     }
 
-    @Test
-    public
 }

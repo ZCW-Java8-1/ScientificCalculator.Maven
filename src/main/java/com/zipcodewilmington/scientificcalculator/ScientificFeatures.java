@@ -5,6 +5,7 @@ public class ScientificFeatures {
 
 
 
+
     public double square(double num1) {
         result = num1 * num1;
         return result;
@@ -23,6 +24,7 @@ public class ScientificFeatures {
     public double inverse(double num1) {
         result = 1 / num1;
         if (num1 == 0) {
+            // Should be error
             System.out.println("You cannot divide by 0");
         } else {
             return result;

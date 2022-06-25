@@ -2,10 +2,13 @@ package com.zipcodewilmington.scientificcalculator;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import static org.junit.Assert.assertEquals;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ScientificFeaturesTest extends Console {
+public class ScientificFeaturesTest {
+
+
 
     @Test
     void TestSquare() {
@@ -25,7 +28,7 @@ class ScientificFeaturesTest extends Console {
     void TestSwitchSign() {
         ScientificFeatures switchSignSwitch = new ScientificFeatures();
         double switchSignT = switchSignSwitch.switchSign(5);
-        Assertions.assertEquals(-5,switchSignT);
+        Assertions.assertEquals(-5.0,switchSignT);
 
     }
 
@@ -75,8 +78,8 @@ class ScientificFeaturesTest extends Console {
 
     @Test
     void TestInverseTangent() {
-        ScientificFeatures inverseTangetTest = new ScientificFeatures();
-        double inverseTangentT = inverseTangetTest.inverseTangent(50,110);
+        ScientificFeatures inverseTangentTest = new ScientificFeatures();
+        double inverseTangentT = inverseTangentTest.inverseTangent(50,110);
         Assertions.assertEquals(0.4266274931268761, inverseTangentT);
     }
 

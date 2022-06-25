@@ -104,6 +104,6 @@ public class ScientificFunctionality {
         }
         return displayMode;
     public String switchDisplayMode(String mode){
-        displayMode = mode;
+        displayMode = mode;;
         }
 }

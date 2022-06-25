@@ -50,3 +50,4 @@ public class TestMainApplication {
         double actual = BasicCalculator.modulus(x,y);
         Assertions.assertEquals(expected,actual);
     }
+    @Test

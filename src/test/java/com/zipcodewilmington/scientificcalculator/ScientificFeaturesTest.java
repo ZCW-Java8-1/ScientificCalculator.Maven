@@ -1,5 +1,6 @@
 package com.zipcodewilmington.scientificcalculator;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -7,27 +8,45 @@ import static org.junit.jupiter.api.Assertions.*;
 class ScientificFeaturesTest extends Console {
 
     @Test
-    void square() {
+    void TestSquare() {
+        ScientificFeatures squareTest = new ScientificFeatures();
+        double squareT = squareTest.square(5);
+        Assertions.assertEquals(25.0, squareT);
     }
 
     @Test
-    void squareRoot() {
+    void TestSquareRoot() {
+        ScientificFeatures squareRootTest = new ScientificFeatures();
+        double squareT = squareRootTest.squareRoot(25);
+        Assertions.assertEquals(5.0, squareT);
     }
 
     @Test
-    void switchSign() {
+    void TestSwitchSign() {
+        ScientificFeatures switchSignSwitch = new ScientificFeatures();
+        double switchSignT = switchSignSwitch.switchSign(5);
+        Assertions.assertEquals(-5,switchSignT);
+
     }
 
     @Test
-    void inverse() {
+    void TestInverse() {
+        ScientificFeatures inverseTest = new ScientificFeatures();
+        double inverseT = inverseTest.inverse(4);
+        Assertions.assertEquals(0.25,inverseT);
+        //Come back to this
     }
 
     @Test
-    void sine() {
+    void TestSine() {
+        ScientificFeatures sineTest = new ScientificFeatures();
+        double sineT = sineTest.sine(5);
+        Assertions.assertEquals(0.08715574274765817, sineT);
     }
 
     @Test
     void cos() {
+
     }
 
     @Test
@@ -65,4 +84,11 @@ class ScientificFeaturesTest extends Console {
     @Test
     void inverseLn() {
     }
+
+
+//        ScientificFeatures PaydayTest = new ScientificFeatures();
+//        double something = PaydayTest.DividebyZero(5,0);
+//        Assertions.assertEquals("infinity", something);
+
+
 }

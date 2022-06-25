@@ -3,6 +3,8 @@ package com.zipcodewilmington.scientificcalculator;
 public class ScientificFeatures {
     double result;
 
+
+
     public double square(double num1) {
         result = num1 * num1;
         return result;

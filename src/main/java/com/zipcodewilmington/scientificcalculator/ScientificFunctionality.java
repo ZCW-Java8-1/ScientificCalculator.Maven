@@ -88,7 +88,7 @@ public class ScientificFunctionality {
         return unitsMode;
     }
     public String getUnitsMode(){
-        return unitsMode;
+        return unitsMode;;
     }
 
     //switch display mode

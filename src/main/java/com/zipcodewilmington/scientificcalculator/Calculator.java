@@ -23,6 +23,7 @@ public class Calculator {
             }
 
             System.out.println("Current value: " + displayVal);
+            System.out.println("test");
         }
     }
 }

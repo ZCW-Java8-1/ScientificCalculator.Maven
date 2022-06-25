@@ -7,6 +7,14 @@ public class ScientificFunctionality {
     private String unitsMode;
     private String displayMode;
 
+    private int decValue;
+    private String binValue;
+
+    private String octValue;
+
+    private String hexValue;
+    private String memValue;
+
     // Creating a constructor so that unit & display modes MUST be set
     public ScientificFunctionality(){
         unitsMode = "Degrees";
@@ -91,7 +99,13 @@ public class ScientificFunctionality {
         return unitsMode;
     }
 
+    public void displayUnitsMode(){
+        System.out.println(unitsMode);
+    }
+
     //switch display mode functions
+    // Should be used like switchDisplayMode THEN use
+    // ConvertFromDecimal THEN getDisplayModeValue
     public String switchDisplayMode(){
         if(displayMode.equals("Binary")){
             displayMode = "Octal";
@@ -115,17 +129,60 @@ public class ScientificFunctionality {
         return displayMode;
     }
 
-    public String convertDisplayModeValue(Integer input){
+    // Converting results to Decimal so that things can be computed
+    public String getDisplayModeValue(){
         String result;
+
         if(displayMode.equals("Binary")){
-            result = Integer.toBinaryString(input);
+            result = getBinValue();
         } else if(displayMode.equals("Octal")){
-
+            result = getOctValue();
         } else if(displayMode.equals("Decimal")){
-
-        } else if(displayMode.equals("Hexadecimal")){
-
+            result = String.valueOf(getDecValue());
+        } else {
+            result = getHexValue();
         }
-        return "";
+        return result;
+    }
+
+    public void showDisplayModeValue(){
+        String value = getDisplayModeValue();
+        System.out.println(value);
+    }
+
+    public void convertFromDecimal(int input){
+        binValue = Integer.toBinaryString(input);
+        octValue = Integer.toOctalString(input);
+        hexValue = Integer.toHexString(input);
+        decValue = input;
+    }
+
+    public String storeMemoryValue(String value){
+        memValue = value;
+        return memValue;
+    }
+
+    public void clearMemoryValue(){
+        memValue = null;
+    }
+
+    public String getMemoryValue(){
+        return memValue;
+    }
+
+    public String getBinValue(){
+        return binValue;
+    }
+
+    public String getOctValue(){
+        return octValue;
+    }
+
+    public String getHexValue(){
+        return hexValue;
+    }
+
+    public int getDecValue(){
+        return decValue;
     }
 }

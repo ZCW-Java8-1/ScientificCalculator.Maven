@@ -2,15 +2,15 @@ package com.zipcodewilmington.scientificcalculator;
 
 
 public class ScientificFunctionality {
-    //TODO create another String instance variable to set display mode just like unitsMode
 
    //Instance variables
     private String unitsMode;
     private String displayMode;
 
-    // Creating a constructor so that units mode MUST be set
+    // Creating a constructor so that unit & display modes MUST be set
     public ScientificFunctionality(){
         unitsMode = "Degrees";
+        displayMode = "Decimal";
     }
 
     //Logarithmic functions
@@ -91,7 +91,7 @@ public class ScientificFunctionality {
         return unitsMode;
     }
 
-    //switch display mode
+    //switch display mode functions
     public String switchDisplayMode(){
         if(displayMode.equals("Binary")){
             displayMode = "Octal";
@@ -103,7 +103,29 @@ public class ScientificFunctionality {
             displayMode = "Binary";
         }
         return displayMode;
-    public String switchDisplayMode(String mode){
-        displayMode = mode;
+    }
+
+    public String switchDisplayMode(String mode) {
+        if (mode.equals("Binary") || mode.equals("Octal") || mode.equals("Decimal") || mode.equals("Hexadecimal")) {
+            displayMode = mode;
+        } else {
+            System.out.println("Invalid display mode, setting display mode to Decimal");
+            displayMode = "Decimal";
         }
+        return displayMode;
+    }
+
+    public String convertDisplayModeValue(Integer input){
+        String result;
+        if(displayMode.equals("Binary")){
+            result = Integer.toBinaryString(input);
+        } else if(displayMode.equals("Octal")){
+
+        } else if(displayMode.equals("Decimal")){
+
+        } else if(displayMode.equals("Hexadecimal")){
+
+        }
+        return "";
+    }
 }

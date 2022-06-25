@@ -1,7 +1,5 @@
 THE SCIENTIFIC CALCULATOR PLAN!!!
 
-Basic Calculator: 
-Scientific Functions: 
-Testing: 
-
-
+Basic Calculator: Mary
+Scientific Functions: Kyle
+Testing: Mike  

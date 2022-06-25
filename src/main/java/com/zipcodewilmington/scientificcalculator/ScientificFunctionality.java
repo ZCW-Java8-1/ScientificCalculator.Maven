@@ -2,15 +2,23 @@ package com.zipcodewilmington.scientificcalculator;
 
 
 public class ScientificFunctionality {
-    //TODO create another String instance variable to set display mode just like unitsMode
 
    //Instance variables
     private String unitsMode;
     private String displayMode;
 
-    // Creating a constructor so that units mode MUST be set
+    private int decValue;
+    private String binValue;
+
+    private String octValue;
+
+    private String hexValue;
+    private String memValue;
+
+    // Creating a constructor so that unit & display modes MUST be set
     public ScientificFunctionality(){
         unitsMode = "Degrees";
+        displayMode = "Decimal";
     }
 
     //Logarithmic functions
@@ -91,7 +99,13 @@ public class ScientificFunctionality {
         return unitsMode;
     }
 
-    //switch display mode
+    public void displayUnitsMode(){
+        System.out.println(unitsMode);
+    }
+
+    //switch display mode functions
+    // Should be used like switchDisplayMode THEN use
+    // ConvertFromDecimal THEN getDisplayModeValue
     public String switchDisplayMode(){
         if(displayMode.equals("Binary")){
             displayMode = "Octal";
@@ -103,7 +117,72 @@ public class ScientificFunctionality {
             displayMode = "Binary";
         }
         return displayMode;
-    public String switchDisplayMode(String mode){
-        displayMode = mode;
+    }
+
+    public String switchDisplayMode(String mode) {
+        if (mode.equals("Binary") || mode.equals("Octal") || mode.equals("Decimal") || mode.equals("Hexadecimal")) {
+            displayMode = mode;
+        } else {
+            System.out.println("Invalid display mode, setting display mode to Decimal");
+            displayMode = "Decimal";
         }
+        return displayMode;
+    }
+
+    // Converting results to Decimal so that things can be computed
+    public String getDisplayModeValue(){
+        String result;
+
+        if(displayMode.equals("Binary")){
+            result = getBinValue();
+        } else if(displayMode.equals("Octal")){
+            result = getOctValue();
+        } else if(displayMode.equals("Decimal")){
+            result = String.valueOf(getDecValue());
+        } else {
+            result = getHexValue();
+        }
+        return result;
+    }
+
+    public void showDisplayModeValue(){
+        String value = getDisplayModeValue();
+        System.out.println(value);
+    }
+
+    public void convertFromDecimal(int input){
+        binValue = Integer.toBinaryString(input);
+        octValue = Integer.toOctalString(input);
+        hexValue = Integer.toHexString(input);
+        decValue = input;
+    }
+
+    public String storeMemoryValue(String value){
+        memValue = value;
+        return memValue;
+    }
+
+    public void clearMemoryValue(){
+        memValue = null;
+    }
+
+    public String getMemoryValue(){
+        return memValue;
+    }
+
+    public String getBinValue(){
+        return binValue;
+    }
+
+    public String getOctValue(){
+        return octValue;
+    }
+
+    public String getHexValue(){
+        return hexValue;
+    }
+
+    public int getDecValue(){
+        return decValue;
+    }
 }

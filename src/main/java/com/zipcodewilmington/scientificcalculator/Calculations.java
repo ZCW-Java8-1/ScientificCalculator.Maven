@@ -5,56 +5,54 @@ public class Calculations {
 
     public static Double addition(double value1, double value2) {
         double sum = value1 + value2;
-        System.out.println(sum);
-        return null;
+        return sum;
 
     }
 
     public static Double subtraction(double value1, double value2) {
-        System.out.println(value1 - value2);
-        return null;
+        double difference = value1 - value2;
+        return difference;
     }
 
     public static Double multiplication(double value1, double value2) {
-        System.out.println(value1 * value2);
-        return null;
+        double product = value1 * value2;
+        return product;
     }
 
     public static Double division(double value1, double value2) {
-        System.out.println(value1 / value2);
-        return null;
+        double quotient = value1 / value2;
+        return quotient;
     }
 
     public static Double squared(double value1) {
-        System.out.println(value1 * value1);
-        return null;
+        double sq = value1 * value1;
+        return sq;
     }
 
     public static Double squareRoot(double value1) {
 
-        System.out.println(Math.sqrt(value1));
-        return null;
+        double sqrt = Math.sqrt(value1);
+        return sqrt;
     }
 
     public static Double exponent(double value1, double value2) {
-        System.out.println(Math.pow(value1, value2));
-        return null;
+        double exp = Math.pow(value1, value2);
+        return exp;
     }
 
     public static Double inverse(double value1) {
-        System.out.println(1 / value1);
-        return null;
+        double ins = 1 / value1;
+        return ins;
     }
 
     public static Double invert(double value1) {
-        double invert = -1 * value1;
+        double inv = -1 * value1;
         if (value1 == 0) {
-            System.out.println((double) 0);
+            return (double) 0;
         } else {
-            System.out.println(invert);
+            return inv;
 
         }
-        return null;
     }
 
 

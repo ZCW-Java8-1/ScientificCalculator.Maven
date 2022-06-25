@@ -1,5 +1,7 @@
 package com.zipcodewilmington.scientificcalculator;
 
+import static java.lang.Math.E;
+
 /**
  * Created by leon on 2/9/18.
  */
@@ -14,9 +16,7 @@ public class MainApplication {
 //        Console.println("The user input %s as a integer", i);
 //        Console.println("The user input %s as a d", d);
 //
-    double result;
-    double num1;
-    double equation;
+
 
 
 //        ScientificFeatures x = new ScientificFeatures();

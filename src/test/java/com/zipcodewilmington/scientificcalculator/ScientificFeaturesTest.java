@@ -106,12 +106,15 @@ class ScientificFeaturesTest extends Console {
     void TestLn() {
         ScientificFeatures naturalLogTest = new ScientificFeatures();
         double naturalLogT = naturalLogTest.ln(5);
-        Assertions.assertEquals(0,naturalLogT);
+        Assertions.assertEquals(1.6094379124341003,naturalLogT);
 
     }
 
     @Test
-    void inverseLn() {
+    void TestInverseLn() {
+        ScientificFeatures inverseNaturalLogTest = new ScientificFeatures();
+        double inverseNaturalLogT = inverseNaturalLogTest.inverseLn(5);
+        Assertions.assertEquals(148.41315910257657,inverseNaturalLogT);
     }
 
 

@@ -45,25 +45,25 @@ public class ScientificFeatures {
     }
 
     public double inverseSine(double opposite, double hypotenuse) {
-        //Talk to Thina about this one
+        //Talk to group about this one
         result = Math.asin(opposite/hypotenuse);
         return result;
     }
 
     public double inverseCosine(double adjacent, double hypotenuse) {
-        // Talk to Thina about this one
+        // Talk to group about this one
         result = Math.acos(adjacent / hypotenuse);
         return result;
     }
 
     public double inverseTangent(double opposite, double adjacent) {
-        // Talk to Thina about this one
+        // Talk to group about this one
         result = Math.atan(opposite / adjacent);
         return result;
     }
 
     public double factorial(double num1) {
-        // Talk to Thina about this code
+        // Talk to group about this code
         result = 1;
         if (num1 < 0) {
             System.out.println("You cannot get a factorial of a negative number");
@@ -86,7 +86,8 @@ public class ScientificFeatures {
     }
 
     public double ln(double num1){
-        result = Math.log10(num1);
+        // Talk to group
+        result = Math.log(num1);
         return result;
     }
 

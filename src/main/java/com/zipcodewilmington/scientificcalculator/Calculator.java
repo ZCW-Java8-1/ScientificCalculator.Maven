@@ -20,6 +20,7 @@ public class Calculator {
             else if (operator.equals("*")) displayVal = Operation.twoNumOp("*", displayVal);
             else if (operator.equals("/")) displayVal = Operation.twoNumOp("/", displayVal);
             else if (operator.equals("^")) displayVal = Operation.twoNumOp("^", displayVal);
+            else if (operator.equals("sq")) displayVal = Operation.oneNumOp("sq", displayVal);
 
             else {
                 System.out.println("Invalid operation, please enter help for a list of operations");
@@ -28,5 +29,8 @@ public class Calculator {
 
             System.out.println("Current value: " + displayVal);
         }
+
+
     }
+
 }

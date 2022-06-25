@@ -41,7 +41,26 @@ public class Operation {
         return result;
     }
 
-    // Addition
+    public static double oneNumOp(String operation, double displayVal) {
+        double n = 0, result = 0;
+
+        String s1 = Console.getStringInput("Enter the number to perform operation (leave blank to use current value): ");
+        if (s1.equals("")) n = displayVal;
+        else {
+            try {
+                // Try to parse the user input into a double
+                n = Double.parseDouble(s1);
+            } catch (NumberFormatException e){
+                System.out.println("You did not input a valid number. The number has been set to the default value of 0.");
+            }
+        }
+        if (operation.equals("sq")) result = sq(n);
+        else if (operation.equals("sqrt")) result = 5;
+
+        return result;
+    }
+
+        // Addition
     public static double add(double num1, double num2) {
         return num1 + num2;
     }
@@ -60,6 +79,10 @@ public class Operation {
     // Variable exponentiation
     public static double power(double num1, double num2) {
         return Math.pow(num1, num2);
+    }
+    // Square
+    public static double sq(double n) {
+        return n * n;
     }
 
 }

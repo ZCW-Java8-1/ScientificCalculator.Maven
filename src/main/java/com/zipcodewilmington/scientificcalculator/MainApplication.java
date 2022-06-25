@@ -14,7 +14,13 @@ public class MainApplication {
 //        Console.println("The user input %s as a integer", i);
 //        Console.println("The user input %s as a d", d);
 //
-        ScientificFeatures x = new ScientificFeatures();
+    double result;
+    double num1;
+    double equation;
 
+
+//        ScientificFeatures x = new ScientificFeatures();
+//        double y = x.factorial(5);
+//        System.out.println(y);
     }
 }

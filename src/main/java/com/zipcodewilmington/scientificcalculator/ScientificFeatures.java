@@ -44,31 +44,34 @@ public class ScientificFeatures {
         return result;
     }
 
-    public double inverseSine(double num1) {
-        result = Math.asin(num1);
+    public double inverseSine(double opposite, double hypotenuse) {
+        //Talk to Thina about this one
+        result = Math.asin(opposite/hypotenuse);
         return result;
     }
 
-    public double inverseCosine(double num1) {
-        result = Math.acos(num1);
+    public double inverseCosine(double adjacent, double hypotenuse) {
+        // Talk to Thina about this one
+        result = Math.acos(adjacent / hypotenuse);
         return result;
     }
 
-    public double inverseTangent(double num1) {
-        result = Math.atan(num1);
+    public double inverseTangent(double opposite, double adjacent) {
+        // Talk to Thina about this one
+        result = Math.atan(opposite / adjacent);
         return result;
     }
 
     public double factorial(double num1) {
+        // Talk to Thina about this code
         result = 1;
         if (num1 < 0) {
             System.out.println("You cannot get a factorial of a negative number");
         } else if (num1 >= 0) {
-            for (int i = 1; i <= num1; i++) {
-                result = result * 1;
+            for (int i = 1; i < num1; i++) {
+                result += result * i;
             }
         }
-
         return result;
     }
     public double log(double num1){

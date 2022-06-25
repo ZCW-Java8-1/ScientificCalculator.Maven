@@ -45,40 +45,69 @@ class ScientificFeaturesTest extends Console {
     }
 
     @Test
-    void cos() {
+    void TestCos() {
+        ScientificFeatures cosineTest = new ScientificFeatures();
+        double cosineT = cosineTest.cos(5);
+        Assertions.assertEquals(0.9961946980917455,cosineT);
 
     }
 
     @Test
-    void tan() {
+    void TestTan() {
+        ScientificFeatures tanTest = new ScientificFeatures();
+        double tanT = tanTest.tan(5);
+        Assertions.assertEquals(0.087488663525924, tanT);
     }
 
     @Test
-    void inverseSine() {
+    void TestInverseSine() {
+        ScientificFeatures inverseSineTest = new ScientificFeatures();
+        double inverseSineT = inverseSineTest.inverseSine(50,110);
+        Assertions.assertEquals(0.47186183727964187, inverseSineT);
     }
 
     @Test
-    void inverseCosine() {
+    void TestInverseCosine() {
+        ScientificFeatures inverseCosineTest = new ScientificFeatures();
+        double inverseCosineT = inverseCosineTest.inverseCosine(50,110);
+        Assertions.assertEquals(1.0989344895152549,inverseCosineT);
     }
 
     @Test
-    void inverseTangent() {
+    void TestInverseTangent() {
+        ScientificFeatures inverseTangetTest = new ScientificFeatures();
+        double inverseTangentT = inverseTangetTest.inverseTangent(50,110);
+        Assertions.assertEquals(0.4266274931268761, inverseTangentT);
     }
 
     @Test
-    void factorial() {
+    void TestFactorial() {
+        ScientificFeatures factorialTest = new ScientificFeatures();
+        double factorialT = factorialTest.factorial(5);
+        Assertions.assertEquals(120, factorialT);
     }
 
     @Test
-    void log() {
+    void TestLog() {
+        ScientificFeatures logTest = new ScientificFeatures();
+        double logT = logTest.log(5);
+        Assertions.assertEquals(0.6989700043360189, logT);
+
     }
 
     @Test
-    void inverseLog() {
+    void TestInverseLog() {
+        ScientificFeatures inverseLogTest = new ScientificFeatures();
+        double inverseLogT = inverseLogTest.inverseLog(5);
+        Assertions.assertEquals(100000.0, inverseLogT);
     }
 
     @Test
-    void ln() {
+    void TestLn() {
+        ScientificFeatures naturalLogTest = new ScientificFeatures();
+        double naturalLogT = naturalLogTest.ln(5);
+        Assertions.assertEquals(0,naturalLogT);
+
     }
 
     @Test
@@ -86,9 +115,6 @@ class ScientificFeaturesTest extends Console {
     }
 
 
-//        ScientificFeatures PaydayTest = new ScientificFeatures();
-//        double something = PaydayTest.DividebyZero(5,0);
-//        Assertions.assertEquals("infinity", something);
 
 
 }

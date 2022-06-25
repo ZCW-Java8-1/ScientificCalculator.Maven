@@ -1,4 +1,4 @@
-Dan
+
 # ScientificCalculator (maven) ZCW
 
 

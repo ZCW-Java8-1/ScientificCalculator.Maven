@@ -8,6 +8,8 @@ public class Calculator {
 
         double displayVal = 0.0;
 
+        String displayMode = "decimal";
+
         System.out.println("Current value: " + displayVal);
 
         while (calcOn == true) {
@@ -15,6 +17,7 @@ public class Calculator {
 
             if (operator.equals("exit")) break;
             else if (operator.equals("clear")) displayVal = 0.0;
+            else if (operator.equals("switch")) displayMode = switchDisplayMode(displayMode);
             else if (operator.equals("+")) displayVal = Operation.twoNumOp("+", displayVal);
             else if (operator.equals("-")) displayVal = Operation.twoNumOp("-", displayVal);
             else if (operator.equals("*")) displayVal = Operation.twoNumOp("*", displayVal);
@@ -38,10 +41,30 @@ public class Calculator {
                 continue;
             }
 
-            System.out.println("Current value: " + displayVal);
+            printDisplay(displayMode, displayVal);
         }
-
-
     }
 
+    public static String switchDisplayMode(String currentMode) {
+        // Have the user enter the mode they wish to switch to
+        String s = Console.getStringInput("Enter the display mode you wish to switch to (leave blank to auto-rotate): ");
+        if (s.equals("decimal")) return "decimal";
+        else if (s.equals("hexadecimal")) return "hexadecimal";
+        else if (s.equals("octal")) return "octal";
+        else if (s.equals("binary")) return "binary";
+        // If the user enters blank or enters an invalid display mode, then rotate between the display modes
+        else {
+            if (currentMode.equals("decimal")) return "hexadecimal";
+            else if (currentMode.equals("hexadecimal")) return "binary";
+            else if (currentMode.equals("binary")) return "octal";
+            else return "decimal";
+        }
+    }
+
+    public static void printDisplay(String displayMode, double displayVal) {
+        if (displayMode.equals("octal")) System.out.println("Current value: " + Long.toOctalString(Double.doubleToRawLongBits(displayVal)));
+        else if (displayMode.equals("hexadecimal")) System.out.println("Current value: " + Double.toHexString(displayVal));
+        else if (displayMode.equals("binary")) System.out.println("Current value: " + Long.toBinaryString(Double.doubleToRawLongBits(displayVal)));
+        else System.out.println("Current value: " + displayVal);
+    }
 }

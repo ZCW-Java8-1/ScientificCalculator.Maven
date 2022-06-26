@@ -4,7 +4,7 @@ package com.zipcodewilmington.scientificcalculator;
 
 public class MainApplication {
     public static void main(String[] args) {
-        Console.println("Welcome to the calculator made by Linda, Nick and Randy! Please enter help for a list of operations. The default display mode is decimal.");
+        Console.println("Welcome to the calculator made by Linda, Nick and Randy! Please enter help for a list of operations. The default display mode is decimal. The default trig mode is degree.");
         Calculator.run();
     }
 }

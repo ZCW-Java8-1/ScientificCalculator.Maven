@@ -29,21 +29,36 @@ public class MainApplication {
 //
 
         CoreFeatures x = new CoreFeatures();
+
+
       //  x.calc();
 
 //        DisplayFeature y = new DisplayFeature();
 //        y.setDisMode();
 
+        ScientificFeatures radToDegree = new ScientificFeatures();
+        radToDegree.radianOrDegree();
 
-        Scanner input = new Scanner(System.in);
-        System.out.println("Please enter an exclamation (!) key to switch to degree mode or a hashtag (#) to switch to radian mode:");
-        String userInput = input.nextLine();
 
-        if(userInput.equals("!")) {
-            System.out.println("Yes");
-        } else if (userInput.equals("#")) {
-            System.out.println("NO");
-        }
+
+//        Scanner input = new Scanner(System.in);
+//        System.out.println("Please enter an exclamation (!) key to switch to degree mode or a hashtag (#) to switch to radian mode:");
+//        String userInput = input.nextLine();
+//
+//        switch (userInput) {
+//            case "!": System.out.println("Yes");
+//
+//            break;
+//            case "#": System.out.println("NO");
+//            break;
+//            default:
+//            break;
+//        }
+//        if(userInput.equals("!")) {
+//            System.out.println("Yes");
+//        } else if (userInput.equals("#")) {
+//            System.out.println("NO");
+//        }
 
 
 

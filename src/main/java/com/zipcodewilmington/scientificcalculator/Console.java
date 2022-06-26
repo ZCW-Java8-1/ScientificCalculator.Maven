@@ -1,5 +1,8 @@
 package com.zipcodewilmington.scientificcalculator;
 
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.WindowEvent;
 import java.util.Scanner;
 
 /**
@@ -8,6 +11,8 @@ import java.util.Scanner;
 public class Console {
 
     public double result;
+
+
 
     public double add(double num1, double num2) {
         result = num1 + num2;

@@ -32,6 +32,7 @@ public class Calculator {
             else if (operator.equals("invlog")) displayVal = Operation.oneNumOp("invlog", displayVal);
             else if (operator.equals("nlog")) displayVal = Operation.oneNumOp("nlog", displayVal);
             else if (operator.equals("invnlog")) displayVal = Operation.oneNumOp("invnlog", displayVal);
+            else if (operator.equals("!")) displayVal = Operation.factorial("!", displayVal);
             else {
                 System.out.println("Invalid operation, please enter help for a list of operations");
                 continue;

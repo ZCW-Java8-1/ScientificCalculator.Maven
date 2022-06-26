@@ -70,6 +70,25 @@ public class Operation {
 
         return result;
     }
+    //Factorial function
+    public static double factorial(String operation, double displayVal) {
+        double n = 0;
+        String s1 = Console.getStringInput("Enter the number to perform operation (leave blank to use current value): ");
+        if (s1.equals("")) n = displayVal;
+        else {
+            try {
+                // Try to parse the user input into a double
+                n = Double.parseDouble(s1);
+            } catch (NumberFormatException e){
+                System.out.println("You did not input a valid number. The number has been set to the default value of 0.");
+            }
+        }
+        long result = 1;
+        for (int i = 1; i <= n; i++) {
+            result = result * i;
+        }
+        return result;
+    }
 
         // Addition
     public static double add(double num1, double num2) {

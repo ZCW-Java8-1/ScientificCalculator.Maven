@@ -6,7 +6,8 @@ import java.lang.Math;
 public class Calculator {
     Double x, y, mem, result;
     Console choiceString = new Console();
-    // new Scanner item
+    // MainApplication activeCalc = new MainApplication();
+
     // Input section
 
 

@@ -8,6 +8,10 @@ public class Calculator {
 
         double displayVal = 0.0;
 
+        double memoryVal = 0.0;
+
+        boolean degree = true;
+
         String displayMode = "decimal";
 
         System.out.println("Current value: " + displayVal);
@@ -21,6 +25,18 @@ public class Calculator {
                 displayMode = switchDisplayMode(displayMode);
                 System.out.println("The display mode is now " + displayMode + ".");
             }
+            else if (operator.equals("M+")) {
+                memoryVal = displayVal;
+                System.out.println("Memory Value: " + displayVal);
+            }
+            else if (operator.equals("MRC")) {
+                System.out.println("Memory Value: " + memoryVal);
+            }
+            else if (operator.equals("MC")){
+                memoryVal=0;
+                System.out.println("Memory Value: " + memoryVal);
+            }
+            else if (operator.equals("switch trig unit")) degree = !degree;
             else if (operator.equals("+")) displayVal = Operation.twoNumOp("+", displayVal);
             else if (operator.equals("-")) displayVal = Operation.twoNumOp("-", displayVal);
             else if (operator.equals("*")) displayVal = Operation.twoNumOp("*", displayVal);
@@ -30,9 +46,9 @@ public class Calculator {
             else if (operator.equals("sqrt")) displayVal = Operation.oneNumOp("sqrt", displayVal);
             else if (operator.equals("inverse")) displayVal = Operation.oneNumOp("inverse", displayVal);
             else if (operator.equals("invert")) displayVal = Operation.oneNumOp("invert", displayVal);
-            else if (operator.equals("sin")) displayVal = Operation.oneNumOp("sin", displayVal);
-            else if (operator.equals("cos")) displayVal = Operation.oneNumOp("cos", displayVal);
-            else if (operator.equals("tan")) displayVal = Operation.oneNumOp("tan", displayVal);
+            else if (operator.equals("sin")) displayVal = Operation.trigOp("sin", displayVal, degree);
+            else if (operator.equals("cos")) displayVal = Operation.trigOp("cos", displayVal, degree);
+            else if (operator.equals("tan")) displayVal = Operation.trigOp("tan", displayVal, degree);
             else if (operator.equals("arcsin")) displayVal = Operation.oneNumOp("arcsin", displayVal);
             else if (operator.equals("arccos")) displayVal = Operation.oneNumOp("arccos", displayVal);
             else if (operator.equals("arctan")) displayVal = Operation.oneNumOp("arctan", displayVal);
@@ -99,5 +115,9 @@ public class Calculator {
         System.out.println("Four display modes: binary, octal, decimal, hexadecimal ");
         System.out.println("Clear the display: clear ");
         System.out.println("Turn off the calculator: exit ");
+        System.out.println("Add the currently displayed Value to the value in memory: M+");
+        System.out.println("Reset memory: MC");
+        System.out.println("Recall the current value from memory to display: MRC");
+        System.out.println("Switch trig unit mode(Degree, Radians): switch trig unit");
     }
 }

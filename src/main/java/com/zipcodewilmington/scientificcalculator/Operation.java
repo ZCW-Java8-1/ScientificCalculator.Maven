@@ -56,6 +56,8 @@ public class Operation {
         }
         if (operation.equals("sq")) result = sq(n);
         else if (operation.equals("sqrt")) result = Math.sqrt(n);
+        else if (operation.equals("inverse")) result = inverse(n);
+        else if (operation.equals("invert")) result = invert(n);
         else if (operation.equals("log")) result = Math.log10(n);
         else if (operation.equals("invlog")) result = Math.pow(10,n);
         else if (operation.equals("nlog")) result = Math.log(n);
@@ -91,27 +93,43 @@ public class Operation {
 
         // Addition
     public static double add(double num1, double num2) {
+
         return num1 + num2;
     }
     // Subtraction
     public static double subtract(double num1, double num2) {
+
         return num1 - num2;
     }
     // Multiplication
     public static double multiply(double num1, double num2) {
+
         return num1 * num2;
     }
     // Division
     public static double divide(double num1, double num2) {
+
         return num1 / num2;
     }
     // Variable exponentiation
     public static double power(double num1, double num2) {
+
         return Math.pow(num1, num2);
     }
     // Square
     public static double sq(double n) {
+
         return n * n;
+    }
+    // Inverse of the number
+    public static double inverse(double n) {
+
+        return 1 / n;
+    }
+    // Invert the sign of the number on the display (switch between positive and negative)
+    public static double invert(double n) {
+
+        return n * -1;
     }
 
 }

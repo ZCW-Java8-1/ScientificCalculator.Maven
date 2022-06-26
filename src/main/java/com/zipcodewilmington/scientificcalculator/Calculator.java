@@ -17,7 +17,10 @@ public class Calculator {
 
             if (operator.equals("exit")) break;
             else if (operator.equals("clear")) displayVal = 0.0;
-            else if (operator.equals("switch")) displayMode = switchDisplayMode(displayMode);
+            else if (operator.equals("switch")) {
+                displayMode = switchDisplayMode(displayMode);
+                System.out.println("The display mode is now " + displayMode + ".");
+            }
             else if (operator.equals("+")) displayVal = Operation.twoNumOp("+", displayVal);
             else if (operator.equals("-")) displayVal = Operation.twoNumOp("-", displayVal);
             else if (operator.equals("*")) displayVal = Operation.twoNumOp("*", displayVal);
@@ -25,6 +28,8 @@ public class Calculator {
             else if (operator.equals("^")) displayVal = Operation.twoNumOp("^", displayVal);
             else if (operator.equals("sq")) displayVal = Operation.oneNumOp("sq", displayVal);
             else if (operator.equals("sqrt")) displayVal = Operation.oneNumOp("sqrt", displayVal);
+            else if (operator.equals("inverse")) displayVal = Operation.oneNumOp("inverse", displayVal);
+            else if (operator.equals("invert")) displayVal = Operation.oneNumOp("invert", displayVal);
             else if (operator.equals("sin")) displayVal = Operation.oneNumOp("sin", displayVal);
             else if (operator.equals("cos")) displayVal = Operation.oneNumOp("cos", displayVal);
             else if (operator.equals("tan")) displayVal = Operation.oneNumOp("tan", displayVal);

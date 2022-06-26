@@ -34,12 +34,15 @@ public class MainApplication {
 //        DisplayFeature y = new DisplayFeature();
 //        y.setDisMode();
 
+
         Scanner input = new Scanner(System.in);
-        System.out.println("Please enter the backspace (!) key to enter radian/degree mode: ");
+        System.out.println("Please enter an exclamation (!) key to switch to degree mode or a hashtag (#) to switch to radian mode:");
         String userInput = input.nextLine();
 
         if(userInput.equals("!")) {
             System.out.println("Yes");
+        } else if (userInput.equals("#")) {
+            System.out.println("NO");
         }
 
 

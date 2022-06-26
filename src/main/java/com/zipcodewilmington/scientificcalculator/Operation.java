@@ -67,7 +67,6 @@ public class Operation {
         else if (operation.equals("arccos")) result = Math.acos(n);
         else if (operation.equals("arctan")) result = Math.atan(n);
 
-
         return result;
     }
     //Factorial function

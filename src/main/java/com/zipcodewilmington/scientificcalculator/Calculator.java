@@ -14,9 +14,9 @@ public class Calculator {
 
         while (calcOn == true) {
             String operator = Console.getStringInput("Enter the operation you wish to perform: ");
-
             if (operator.equals("exit")) break;
             else if (operator.equals("clear")) displayVal = 0.0;
+            else if (operator.equals("help")) printHelp();
             else if (operator.equals("switch")) {
                 displayMode = switchDisplayMode(displayMode);
                 System.out.println("The display mode is now " + displayMode + ".");
@@ -38,8 +38,8 @@ public class Calculator {
             else if (operator.equals("arctan")) displayVal = Operation.oneNumOp("arctan", displayVal);
             else if (operator.equals("log")) displayVal = Operation.oneNumOp("log", displayVal);
             else if (operator.equals("invlog")) displayVal = Operation.oneNumOp("invlog", displayVal);
-            else if (operator.equals("nlog")) displayVal = Operation.oneNumOp("nlog", displayVal);
-            else if (operator.equals("invnlog")) displayVal = Operation.oneNumOp("invnlog", displayVal);
+            else if (operator.equals("ln")) displayVal = Operation.oneNumOp("ln", displayVal);
+            else if (operator.equals("e")) displayVal = Operation.oneNumOp("e", displayVal);
             else if (operator.equals("!")) displayVal = Operation.factorial("!", displayVal);
             else {
                 System.out.println("Invalid operation, please enter help for a list of operations");
@@ -71,5 +71,33 @@ public class Calculator {
         else if (displayMode.equals("hexadecimal")) System.out.println("Current value: " + Double.toHexString(displayVal));
         else if (displayMode.equals("binary")) System.out.println("Current value: " + Long.toBinaryString(Double.doubleToRawLongBits(displayVal)));
         else System.out.println("Current value: " + displayVal);
+    }
+    // Method that prints out a list of operations with the operation 'help'
+    public static void printHelp() {
+        System.out.println("Here are the list of operations:");
+        System.out.println("Addition: + ");
+        System.out.println("Subtraction: - ");
+        System.out.println("Multiplication: * ");
+        System.out.println("Division: / ");
+        System.out.println("Square: sq ");
+        System.out.println("Square root: sqrt ");
+        System.out.println("Variable Exponentiation: ^ ");
+        System.out.println("Inverse: inverse ");
+        System.out.println("Invert: invert ");
+        System.out.println("Sine: sin ");
+        System.out.println("Cosine: cos ");
+        System.out.println("Tangent: tan ");
+        System.out.println("Inverse Sine: arcsin ");
+        System.out.println("Inverse Cosine: arccos ");
+        System.out.println("Inverse Tangent: arctan ");
+        System.out.println("Log: log ");
+        System.out.println("Inverse Logarithm: invlog ");
+        System.out.println("Natural Logarithm: ln ");
+        System.out.println("Inverse Natural Logarithm: e ");
+        System.out.println("Factorial: ! ");
+        System.out.println("Switch between display mode: switch ");
+        System.out.println("Four display modes: binary, octal, decimal, hexadecimal ");
+        System.out.println("Clear the display: clear ");
+        System.out.println("Turn off the calculator: exit ");
     }
 }

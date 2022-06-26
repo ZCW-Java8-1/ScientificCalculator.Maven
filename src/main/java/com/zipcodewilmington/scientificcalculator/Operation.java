@@ -60,8 +60,8 @@ public class Operation {
         else if (operation.equals("invert")) result = invert(n);
         else if (operation.equals("log")) result = Math.log10(n);
         else if (operation.equals("invlog")) result = Math.pow(10,n);
-        else if (operation.equals("nlog")) result = Math.log(n);
-        else if (operation.equals("invnlog")) result = Math.exp(n);
+        else if (operation.equals("ln")) result = Math.log(n);
+        else if (operation.equals("e")) result = Math.exp(n);
         else if (operation.equals("sin")) result = Math.sin(n);
         else if (operation.equals("cos")) result = Math.cos(n);
         else if (operation.equals("tan")) result = Math.tan(n);

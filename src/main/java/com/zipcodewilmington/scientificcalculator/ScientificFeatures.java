@@ -1,14 +1,8 @@
 package com.zipcodewilmington.scientificcalculator;
 
-import java.util.Scanner;
 
 public class ScientificFeatures {
     private double result;
-
-   private  double toRadian;
-   private double toDegree;
-
-
 
 
     public double square(double num1) {
@@ -39,8 +33,6 @@ public class ScientificFeatures {
     }
 
 
-
-
     public double sine(double num1) {
         result = Math.sin(Math.toRadians(num1));
         return result;
@@ -58,7 +50,7 @@ public class ScientificFeatures {
 
     public double inverseSine(double opposite, double hypotenuse) {
         //Talk to group about this one
-        result = Math.asin(opposite/hypotenuse);
+        result = Math.asin(opposite / hypotenuse);
         return result;
     }
 
@@ -86,38 +78,33 @@ public class ScientificFeatures {
         }
         return result;
     }
-    public double log(double num1){
+
+    public double log(double num1) {
         result = Math.log10(num1);
         return result;
 
     }
 
-    public double inverseLog(double num1){
+    public double inverseLog(double num1) {
         result = Math.pow(10, num1);
         return result;
     }
 
-    public double ln(double num1){
+    public double ln(double num1) {
         // Talk to group
         result = Math.log(num1);
         return result;
     }
 
-    public double inverseLn(double num1){
+    public double inverseLn(double num1) {
         result = Math.pow(Math.E, num1);
         return result;
     }
 
-    public double radianNum (double num) {
-        toRadian = Math.toRadians(num);
-        return toRadian;
+    public double cubeRoot(double num1){
+        result =  Math.cbrt(num1);
+        return result;
     }
-
-    public double degreesNum(double num){
-        toDegree = Math.toDegrees(num);
-        return toDegree;
-    }
-
 
 
 }

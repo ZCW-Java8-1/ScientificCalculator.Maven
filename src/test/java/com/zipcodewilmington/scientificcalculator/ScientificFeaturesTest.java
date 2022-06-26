@@ -121,6 +121,16 @@ public class ScientificFeaturesTest {
         Assertions.assertEquals(148.41315910257657,inverseNaturalLogT);
     }
 
+    @Test
+    void TestCubeRoot() {
+
+    }
+
+    @Test
+    void TestCube(){
+
+    }
+
 
 
 

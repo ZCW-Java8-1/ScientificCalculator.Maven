@@ -35,6 +35,11 @@ public class Calculator {
         return y ;  //
     }
 
+    public int sqry(int x, int y, int result) {
+        result = (int) Math.pow(x,y);
+        return result;
+    }
+
     public int root(int x, int y) {
         y = (int) Math.sqrt(x);
         return y;

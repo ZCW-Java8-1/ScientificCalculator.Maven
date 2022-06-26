@@ -12,7 +12,6 @@ public class Console {
     }
 
 
-
     public static void println(String output, Object... args) {
         print(output + "\n", args);
     }

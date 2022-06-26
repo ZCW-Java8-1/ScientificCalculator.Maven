@@ -27,7 +27,8 @@ public class MainApplication {
 //        Console.println("The user input %s as a d", d);
 //
 
-
+        CoreFeatures x = new CoreFeatures();
+        x.calc();
 
 
 //        ScientificFeatures x = new ScientificFeatures();

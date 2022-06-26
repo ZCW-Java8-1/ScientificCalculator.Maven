@@ -13,9 +13,6 @@ import static java.lang.Math.E;
 public class MainApplication {
 
 
-
-
-
     public static void main(String[] args) {
 
 //        Console.println("Welcome to my calculator!");
@@ -34,16 +31,36 @@ public class MainApplication {
         System.out.println(y.inverse(0));
 
 
-        ScientificFeatures radToDegree = new ScientificFeatures();
-        radToDegree.radianOrDegree();
-
-
-
-
-
-
-
-
 
     }
+
+    public void radianOrDegree() {
+
+        ScientificFeatures Degree = new ScientificFeatures();
+        ScientificFeatures Radian = new ScientificFeatures();
+
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Please enter an exclamation (!) key to switch to degree mode or a hashtag (#) to switch to radian mode:");
+        String userInput = input.nextLine();
+
+
+        switch (userInput) {
+            case "!":
+                System.out.println("Degree");
+                System.out.println("Please enter your number with a decimal point value only: ");
+                double userInputNum = input.nextDouble();
+                System.out.println(Degree.degreesNum(userInputNum));
+                break;
+            case "#":
+                System.out.println("Radians");
+                System.out.println("Please enter your number:");
+                double userInputRad = input.nextDouble();
+                System.out.println(Radian.radianNum(userInputRad));
+                break;
+            default:
+                break;
+        }
+    }
+
 }

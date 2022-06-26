@@ -9,7 +9,6 @@ import static org.junit.jupiter.api.Assertions.*;
 public class ScientificFeaturesTest {
 
 
-
     @Test
     void TestSquare() {
         ScientificFeatures squareTest = new ScientificFeatures();
@@ -36,14 +35,11 @@ public class ScientificFeaturesTest {
     void TestInverse() {
         ScientificFeatures inverseTest = new ScientificFeatures();
         double inverseT = inverseTest.inverse(0);
-        Assertions.assertEquals(0.25,inverseT);
-        // Need to understand this
-//        Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
-//            inverseTest.inverse(0);
-//        });
-//        assertEquals("Error", exception.getMessage());
-//        //Come back to this
+        Assertions.assertEquals("Err",inverseT);
+
     }
+
+
 
     @Test
     void TestSine() {

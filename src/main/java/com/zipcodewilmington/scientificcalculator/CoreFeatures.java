@@ -54,6 +54,10 @@ public class CoreFeatures {
         return number1 / number2;
     }
 
+    public void clear() {
+        System.out.println(System.lineSeparator().repeat(100));
+    }
+
 //    public static void main(String args[]) {
 //
 //        double firstNumber;

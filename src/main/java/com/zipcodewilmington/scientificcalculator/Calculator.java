@@ -25,6 +25,7 @@ public class Calculator {
             else if (operator.equals("^")) displayVal = Operation.twoNumOp("^", displayVal);
             else if (operator.equals("sq")) displayVal = Operation.oneNumOp("sq", displayVal);
             else if (operator.equals("sqrt")) displayVal = Operation.oneNumOp("sqrt", displayVal);
+            else if (operator.equals("inverse")) displayVal = Operation.oneNumOp("inverse", displayVal);
             else if (operator.equals("sin")) displayVal = Operation.oneNumOp("sin", displayVal);
             else if (operator.equals("cos")) displayVal = Operation.oneNumOp("cos", displayVal);
             else if (operator.equals("tan")) displayVal = Operation.oneNumOp("tan", displayVal);

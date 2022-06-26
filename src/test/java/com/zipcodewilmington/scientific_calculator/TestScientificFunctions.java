@@ -154,7 +154,6 @@ public class TestScientificFunctions {
 
 
 
- //   Factorial function
 
 
 

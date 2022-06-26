@@ -1,4 +1,4 @@
-package com.zipcodewilmington.scientificcalculator;
+package com.zipcodewilmington.sciegintificcalculator;
 
 import java.util.Scanner;
 

@@ -3,8 +3,9 @@ package com.zipcodewilmington.scientificcalculator;
 import java.util.Scanner;
 
 public class DisplayWork {
-    int loopFor;
-    double answer;
+    private int loopFor;
+    private double answer;
+    private boolean onButton;
 
 
     public void  store() {
@@ -26,22 +27,27 @@ public class DisplayWork {
 
         switch (operator) {
             case "+":
-                answer = firstNumber + secondNumber;
-                System.out.println(answer);
+                CoreFeatures additionFormula = new CoreFeatures();
+                String additionFormulaRead = String.valueOf((int)additionFormula.add(firstNumber, secondNumber));
+                System.out.println(additionFormulaRead);
                 break;
             case "-":
-                answer = firstNumber - secondNumber;
-                break;
+                CoreFeatures subtractionFormula = new CoreFeatures();
+                String subtractionFormulaRead = String.valueOf((int)subtractionFormula.subtract(firstNumber, secondNumber));
+                System.out.println(subtractionFormulaRead);
             case "/":
-                answer = firstNumber / secondNumber;
-                break;
+                CoreFeatures divisionFormula = new CoreFeatures();
+                String divisionFormulaRead = String.valueOf((int)divisionFormula.div(firstNumber, secondNumber));
+                System.out.println(divisionFormulaRead);
             case "*":
-                answer = firstNumber * secondNumber;
-                break;
+                CoreFeatures multiplyFormula = new CoreFeatures();
+                String multiplyFormulaRead = String.valueOf((int)multiplyFormula.mult(firstNumber,secondNumber));
+                System.out.println(multiplyFormulaRead);
             case "**":
                     ScientificFeatures squareFormula = new ScientificFeatures();
-                    String squareFormulaPrint = String.valueOf(squareFormula.square(firstNumber));
+                    String squareFormulaPrint = String.valueOf((int)squareFormula.square(firstNumber));
                     System.out.println(squareFormulaPrint);
+
                 break;
             case "*/":
                 ScientificFeatures squareRootFormula = new ScientificFeatures();
@@ -97,13 +103,21 @@ public class DisplayWork {
                 System.out.println("Incorrect operator");
                 break;
         }
-        if() {
+        Scanner inputEsc = new Scanner(System.in);
+        System.out.println("Do you want to exit? \n Please enter Y or press N to clear the display");
+        String inputEscRead = inputEsc.next();
+        if(inputEscRead.equalsIgnoreCase("Y")) {
+            onButton = false;
+        } else if (inputEscRead.equalsIgnoreCase("N")) {
             System.out.println("\033[H\033[2J");
             System.out.flush();
+        }else {
+            System.out.println("Please enter the correct letter");
         }
-
 
 
     }
 
-}
+
+    }
+

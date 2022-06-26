@@ -1,38 +1,36 @@
 package com.zipcodewilmington.scientificcalculator;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class CoreFeaturesTest {
 
+    CoreFeatures allTests = new CoreFeatures();
+
+
     @Test
-    void setDisplayMode() {
+    void subtractTest() {
+        double subT = allTests.subtract(5, 10);
+        Assertions.assertEquals(-5.0, subT);
     }
 
     @Test
-    void calc() {
-
+    void addTest() {
+        double addT = allTests.add(5, 10);
+        Assertions.assertEquals(15.0, addT);
     }
 
-    //Addition
+    @Test
+    void multTest() {
+        double multT = allTests.mult(5, 10);
+        Assertions.assertEquals(50.0, multT);
+    }
 
-
-
-    // Subtraction
-
-
-
-    // Multiplication
-
-
-
-    // Division
-
-
-    // Divide by zero
-
-
-
-
+    @Test
+    void divTest() {
+        double divT = allTests.div(5, 10);
+        Assertions.assertEquals(0.5, divT);
+    }
 }

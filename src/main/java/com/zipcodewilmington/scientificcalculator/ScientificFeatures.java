@@ -3,10 +3,10 @@ package com.zipcodewilmington.scientificcalculator;
 import java.util.Scanner;
 
 public class ScientificFeatures {
-    double result;
+    private double result;
 
-    double toRadian;
-    double toDegree;
+   private  double toRadian;
+   private double toDegree;
 
 
 

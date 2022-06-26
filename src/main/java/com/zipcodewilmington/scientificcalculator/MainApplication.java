@@ -34,8 +34,9 @@ public class MainApplication {
 //        DisplayWork g = new DisplayWork();
 //        g.store();
 
-        MainApplication z = new MainApplication();
-        z.clearScreen();
+        CoreFeatures x = new CoreFeatures();
+        String xPrint = String.valueOf((int)x.mult(5,6));
+        System.out.println(xPrint);
 
 
     }
@@ -44,14 +45,7 @@ public class MainApplication {
     //clear display
     String xinput = " ";
     int z;
-    public void clearScreen() {
-        z = 0;
-        Scanner x = new Scanner(System.in);
-        xinput = x.nextLine();
-            System.out.println("\033[H\033[2J");
-            System.out.flush();
-            z++;
-    }
+
 
     public void radianOrDegree() {
 

@@ -69,7 +69,7 @@ public class Operation {
 
         return result;
     }
-    //Factorial function
+    // Factorial function
     public static double factorial(String operation, double displayVal) {
         double n = 0;
         String s1 = Console.getStringInput("Enter the number to perform operation (leave blank to use current value): ");

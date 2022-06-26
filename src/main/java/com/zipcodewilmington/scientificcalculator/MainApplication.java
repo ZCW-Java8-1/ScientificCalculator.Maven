@@ -51,14 +51,22 @@ public class MainApplication {
             case "divide":
                 System.out.println("Enter number: ");
                 num2 = input.nextDouble();
-                screen = bc.divide(screen, num2);
-                Console.println("Answer: %s", screen);
+                if (num2 == 0) {
+                    System.out.println("Divide by 0 error");
+                } else {
+                    screen = bc.divide(screen, num2);
+                    Console.println("Answer: %s", screen);
+                }
                 break;
             case "modulus":
                 System.out.println("Enter number: ");
                 num2 = input.nextDouble();
-                screen = bc.modulus(screen, num2);
-                Console.println("Answer: %s", screen);
+                if (num2 == 0) {
+                    System.out.println("Divide by 0 error");
+                } else {
+                    screen = bc.modulus(screen, num2);
+                    Console.println("Answer: %s", screen);
+                }
                 break;
             case "square":
                 screen *= screen;

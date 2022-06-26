@@ -30,6 +30,8 @@ public class MainApplication {
 
         CoreFeatures x = new CoreFeatures();
 
+        ScientificFeatures y = new ScientificFeatures();
+        System.out.println(y.inverse(0));
 
 
         ScientificFeatures radToDegree = new ScientificFeatures();

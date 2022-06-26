@@ -35,9 +35,14 @@ public class ScientificFeaturesTest {
     @Test
     void TestInverse() {
         ScientificFeatures inverseTest = new ScientificFeatures();
-        double inverseT = inverseTest.inverse(4);
+        double inverseT = inverseTest.inverse(0);
         Assertions.assertEquals(0.25,inverseT);
-        //Come back to this
+        // Need to understand this
+//        Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
+//            inverseTest.inverse(0);
+//        });
+//        assertEquals("Error", exception.getMessage());
+//        //Come back to this
     }
 
     @Test

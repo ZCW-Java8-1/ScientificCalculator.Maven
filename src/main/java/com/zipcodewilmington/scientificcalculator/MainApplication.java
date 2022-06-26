@@ -25,13 +25,32 @@ public class MainApplication {
 //        Console.println("The user input %s as a d", d);
 //
 
-        CoreFeatures x = new CoreFeatures();
+//        CoreFeatures x = new CoreFeatures();
+//
+//        ScientificFeatures y = new ScientificFeatures();
+//
+//        System.out.println(y.inverse(0));
 
-        ScientificFeatures y = new ScientificFeatures();
-        System.out.println(y.inverse(0));
+//        DisplayWork g = new DisplayWork();
+//        g.store();
+
+        MainApplication z = new MainApplication();
+        z.clearScreen();
 
 
+    }
 
+    private int displayMode;
+    //clear display
+    String xinput = " ";
+    int z;
+    public void clearScreen() {
+        z = 0;
+        Scanner x = new Scanner(System.in);
+        xinput = x.nextLine();
+            System.out.println("\033[H\033[2J");
+            System.out.flush();
+            z++;
     }
 
     public void radianOrDegree() {

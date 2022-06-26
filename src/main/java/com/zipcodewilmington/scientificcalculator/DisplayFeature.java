@@ -21,7 +21,9 @@ public class DisplayFeature {
         graphics.setDisplayMode(new DisplayMode(800, 600, 32, 60));
         frame.setVisible(true);
         frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_STATE_CHANGED));
-    }
+        frame.getLayout();
+
+            }
 }
 
 

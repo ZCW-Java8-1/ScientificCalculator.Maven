@@ -3,6 +3,7 @@ package com.zipcodewilmington.scientificcalculator;
 import com.sun.tools.javac.Main;
 
 import java.awt.*;
+import java.util.Scanner;
 
 import static java.lang.Math.E;
 
@@ -29,6 +30,22 @@ public class MainApplication {
 
         CoreFeatures x = new CoreFeatures();
       //  x.calc();
+
+//        DisplayFeature y = new DisplayFeature();
+//        y.setDisMode();
+
+        Scanner input = new Scanner(System.in);
+        System.out.println("Please enter the backspace (!) key to enter radian/degree mode: ");
+        String userInput = input.nextLine();
+
+        if(userInput.equals("!")) {
+            System.out.println("Yes");
+        }
+
+
+
+
+
 
 
 

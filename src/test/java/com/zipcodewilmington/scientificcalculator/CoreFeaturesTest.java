@@ -14,4 +14,21 @@ class CoreFeaturesTest {
     void calc() {
 
     }
+
+    //Addition
+
+
+
+    // Subtraction
+
+
+
+    // Multiplication
+
+
+
+    // Division
+
+
+
 }

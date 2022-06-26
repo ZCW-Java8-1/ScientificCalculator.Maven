@@ -33,16 +33,9 @@ public class CalculatorScientific {
     static Scanner scan = new Scanner(System.in);
 
 
-
-
-
     public void switchDisplayMode() {
 
     }
-
-
-
-
 
 
     //SINE
@@ -52,6 +45,7 @@ public class CalculatorScientific {
         System.out.println(Math.sin(num1));
         return Math.sin(num1);
     }
+
     //COSINE
     public double cosine(double num1) {
 //        System.out.println("Cosine of: ");
@@ -59,6 +53,7 @@ public class CalculatorScientific {
         System.out.println(Math.cos(num1));
         return Math.cos(num1);
     }
+
     //TANGENT
     public double tangent(double num1) {
 //        System.out.println("Tangent of: ");
@@ -66,6 +61,7 @@ public class CalculatorScientific {
         System.out.println(Math.tan(num1));
         return Math.tan(num1);
     }
+
     //ARCSINE AKA INVERSE SINE
     public double inverseSine(double num1) {
 //        System.out.println("Inverse Sine of: ");
@@ -73,6 +69,7 @@ public class CalculatorScientific {
         System.out.println(Math.asin(num1));
         return Math.asin(num1);
     }
+
     //ARC COSINE AKA INVERSE COSINE
     public double inverseCosine(double num1) {
 //        System.out.println("Inverse Cosine of: ");
@@ -80,6 +77,7 @@ public class CalculatorScientific {
         System.out.println(Math.acos(num1));
         return Math.acos(num1);
     }
+
     //ARC TANGENT AKA INVERSE TANGENT
     public double inverseTangent(double num1) {
 //        System.out.println("Inverse Tangent of: ");
@@ -87,14 +85,10 @@ public class CalculatorScientific {
         System.out.println(Math.atan(num1));
         return Math.atan(num1);
     }
+
     //DEGREES TO RADIANS
     public double degreesToRadians(double num1) {
         System.out.println(Math.toRadians(num1));
         return Math.toRadians(num1);
     }
-
-
-
-
-
 }

@@ -55,8 +55,38 @@ public class Operation {
             }
         }
         if (operation.equals("sq")) result = sq(n);
-        else if (operation.equals("sqrt")) result = 5;
+        else if (operation.equals("sqrt")) result = Math.sqrt(n);
+        else if (operation.equals("log")) result = Math.log10(n);
+        else if (operation.equals("invlog")) result = Math.pow(10,n);
+        else if (operation.equals("nlog")) result = Math.log(n);
+        else if (operation.equals("invnlog")) result = Math.exp(n);
+        else if (operation.equals("sin")) result = Math.sin(n);
+        else if (operation.equals("cos")) result = Math.cos(n);
+        else if (operation.equals("tan")) result = Math.tan(n);
+        else if (operation.equals("arcsin")) result = Math.asin(n);
+        else if (operation.equals("arccos")) result = Math.acos(n);
+        else if (operation.equals("arctan")) result = Math.atan(n);
 
+
+        return result;
+    }
+    //Factorial function
+    public static double factorial(String operation, double displayVal) {
+        double n = 0;
+        String s1 = Console.getStringInput("Enter the number to perform operation (leave blank to use current value): ");
+        if (s1.equals("")) n = displayVal;
+        else {
+            try {
+                // Try to parse the user input into a double
+                n = Double.parseDouble(s1);
+            } catch (NumberFormatException e){
+                System.out.println("You did not input a valid number. The number has been set to the default value of 0.");
+            }
+        }
+        long result = 1;
+        for (int i = 1; i <= n; i++) {
+            result = result * i;
+        }
         return result;
     }
 

@@ -27,8 +27,14 @@ public class ScientificFeatures {
 
     public double inverse(double num1) {
         result = 1 / num1;
-
+        if (num1 == 0) {
+            // Should be error
+            System.out.println("Err");
+        } else {
+            return result;
+        }
         return result;
+
     }
     public double sine(double num1) {
         result = Math.sin(Math.toRadians(num1));

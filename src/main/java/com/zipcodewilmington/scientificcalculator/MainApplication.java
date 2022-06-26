@@ -34,9 +34,9 @@ public class MainApplication {
 //        DisplayWork g = new DisplayWork();
 //        g.store();
 
-        CoreFeatures x = new CoreFeatures();
-        String xPrint = String.valueOf((int)x.mult(5,6));
-        System.out.println(xPrint);
+        DisplayWork start = new DisplayWork();
+        start.calcRun();
+
 
 
     }

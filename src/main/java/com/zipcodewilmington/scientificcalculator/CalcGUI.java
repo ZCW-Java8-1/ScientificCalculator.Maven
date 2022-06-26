@@ -4,6 +4,7 @@ import javax.swing.*;
 import javax.xml.crypto.dsig.spec.DigestMethodParameterSpec;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.text.NumberFormat;
 
 public class CalcGUI  {
     private JFrame frame;
@@ -22,6 +23,7 @@ public class CalcGUI  {
         // init field
         JTextField field = new JTextField();
         field.setPreferredSize(new Dimension(400, 80));
+        field.setEditable(false);
         frame.add(field, BorderLayout.NORTH);
         //=========================== Number pad panel =========================
         // number panel

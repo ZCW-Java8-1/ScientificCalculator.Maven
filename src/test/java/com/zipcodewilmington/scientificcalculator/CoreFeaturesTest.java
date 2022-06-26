@@ -30,5 +30,8 @@ class CoreFeaturesTest {
     // Division
 
 
+    // Divide by zero
+
+
 
 }

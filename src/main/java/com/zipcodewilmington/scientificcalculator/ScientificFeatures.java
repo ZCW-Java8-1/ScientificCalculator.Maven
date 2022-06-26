@@ -125,7 +125,7 @@ public class ScientificFeatures {
 
         switch (userInput) {
             case "!": System.out.println("Degree");
-            System.out.println("Please enter your number: ");
+            System.out.println("Please enter your number with a decimal point value only: ");
             double userInputNum = input.nextDouble();
             System.out.println(Degree.degreesNum(userInputNum));
                 break;

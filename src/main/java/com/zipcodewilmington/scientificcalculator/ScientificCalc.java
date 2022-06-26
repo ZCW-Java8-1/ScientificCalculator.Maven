@@ -14,7 +14,7 @@ enum TrigUnit {
 
 }
 
-public class ScientificCalc {
+public class ScientificCalc extends Calculations {
     private CalcDisplayMode mode;
     private double memory;
     private TrigUnit trigUnit;

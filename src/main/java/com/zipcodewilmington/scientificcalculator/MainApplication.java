@@ -1,5 +1,6 @@
 package com.zipcodewilmington.scientificcalculator;
 
+import javax.swing.*;
 import java.util.Scanner;
 
 /**
@@ -8,7 +9,12 @@ import java.util.Scanner;
 public class MainApplication {
 
     public static void main(String[] args) {
-        new CalcGUI();
+
+        SwingUtilities.invokeLater(new Runnable() {
+                                       public void run() {
+                                           new CalcGUI();
+                                       }
+                                   });
        /*
        boolean exit = false;
 

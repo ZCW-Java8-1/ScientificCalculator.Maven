@@ -3,26 +3,40 @@ package com.zipcodewilmington.scientificcalculator;
 import javax.swing.*;
 import javax.xml.crypto.dsig.spec.DigestMethodParameterSpec;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.NumberFormat;
 
-public class CalcGUI  {
+public class CalcGUI extends ScientificCalc {
     private JFrame frame;
     private JTextField field;
+    private double tmp1, tmp2, result;
+    private String operation;
+    private Boolean hasDecimal;
+    private Boolean flagOverwrite;
 
     public CalcGUI() {
+        super();
+        tmp1 = 0;
+        tmp2 = 0;
+        result = 0;
+        operation = "";
+        hasDecimal = false;
+        flagOverwrite = false;
         init();
     }
+
     private void init() {
         // init frame
         frame = new JFrame("Zip Calc");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setPreferredSize(new Dimension(400,600));
+        frame.setPreferredSize(new Dimension(400, 600));
         frame.setBackground(new Color(239, 232, 232));
 
         // init field
-        JTextField field = new JTextField();
+        this.field = new JTextField();
         field.setPreferredSize(new Dimension(400, 80));
+        field.setText("");
         field.setEditable(false);
         frame.add(field, BorderLayout.NORTH);
         //=========================== Number pad panel =========================
@@ -30,6 +44,7 @@ public class CalcGUI  {
         JPanel calcPanel = new JPanel();
         //calcPanel.setPreferredSize(new Dimension(200, 200));
         calcPanel.setLayout(new GridLayout(7, 3));
+
 
         JButton bMPlus = new JButton("M+");
         JButton bMC = new JButton("MC");
@@ -77,7 +92,7 @@ public class CalcGUI  {
         calcPanel.add(bDot);
 
 
-        // ======================== Operator panel ======================
+        // ======================== Operator/Right panel ======================
         JPanel opPanel = new JPanel();
         //opPanel.setPreferredSize(new Dimension(70, 200));
         opPanel.setLayout(new GridLayout(7, 1));
@@ -88,8 +103,9 @@ public class CalcGUI  {
         JButton bMinus = new JButton("-");
         JButton bPlus = new JButton("+");
         JButton bEqual = new JButton("=");
-        JButton bMod = new JButton("Mod");
+        JButton bMod = new JButton("mod");
         JButton bBackSpace = new JButton("←");
+
 
         opPanel.add(bBackSpace);
         opPanel.add(bMod);
@@ -132,6 +148,82 @@ public class CalcGUI  {
         leftPanel.add(bDisplayMode);
         leftPanel.add(bTrigMode);
         leftPanel.add(bPi);
+        //==================================================================
+        // listener for number pad buttons
+        Action numActionListener = new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JButton button = (JButton) e.getSource();
+                if (!flagOverwrite) {
+                    field.setText(field.getText().concat(button.getText()));
+                } else {
+                    field.setText(button.getText());
+                }
+            }
+        };
+        // listener for operator buttons
+        Action opActionListener = new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JButton button = (JButton) e.getSource();
+                String op = button.getText();
+                if (operation != "") {
+                    tmp1 = handleOperation(operation, tmp1, Double.valueOf(field.getText()));
+                    field.setText(String.valueOf(tmp1));
+                } else {
+                    tmp1 = Double.valueOf(field.getText());
+                }
+                operation = op;
+                flagOverwrite = true;
+            }
+        };
+        b0.addActionListener(numActionListener);
+        b1.addActionListener(numActionListener);
+        b2.addActionListener(numActionListener);
+        b3.addActionListener(numActionListener);
+        b4.addActionListener(numActionListener);
+        b5.addActionListener(numActionListener);
+        b6.addActionListener(numActionListener);
+        b7.addActionListener(numActionListener);
+        b8.addActionListener(numActionListener);
+        b9.addActionListener(numActionListener);
+        bDiv.addActionListener(opActionListener);
+        bPlus.addActionListener(opActionListener);
+        bMinus.addActionListener(opActionListener);
+        bMod.addActionListener(opActionListener);
+        bMul.addActionListener(opActionListener);
+        bEqual.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                switch (operation) {
+                    case "+":
+                        tmp2 = Double.valueOf(field.getText());
+                        result = addition(tmp1, tmp2);
+                        field.setText(String.valueOf(result));
+                        break;
+                    case "-":
+                        tmp2 = Double.valueOf(field.getText());
+                        result = subtraction(tmp1, tmp2);
+                        field.setText(String.valueOf(result));
+                        break;
+                    case "÷":
+                        tmp2 = Double.valueOf(field.getText());
+                        result = division(tmp1, tmp2);
+                        field.setText(String.valueOf(result));
+                        break;
+                    case "x":
+                        tmp2 = Double.valueOf(field.getText());
+                        result = multiplication(tmp1, tmp2);
+                        field.setText(String.valueOf(result));
+                        break;
+                    case "mod":
+                        tmp2 = Double.valueOf(field.getText());
+                        result = tmp1 % tmp2;
+                        field.setText(String.valueOf(result));
+                }
+            }
+        });
+
 
         frame.add(calcPanel);
         frame.add(opPanel, BorderLayout.EAST);
@@ -142,6 +234,21 @@ public class CalcGUI  {
 
     }
 
-
+    private double handleOperation(String operation, double x, double y) {
+        switch (operation) {
+            case "+":
+                return addition(x, y);
+            case "-":
+                return subtraction(tmp1, tmp2);
+            case "÷":
+                return division(tmp1, tmp2);
+            case "x":
+                return multiplication(tmp1, tmp2);
+            case "mod":
+                return tmp1 % tmp2;
+            default:
+                return 0;
+        }
+    }
 }
 

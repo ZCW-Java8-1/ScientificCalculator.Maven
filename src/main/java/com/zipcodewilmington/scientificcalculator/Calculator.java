@@ -50,6 +50,11 @@ public class Calculator {
         return y;
     }
 
+    public int invertSign(int x, int y) {
+        y = (int) x*-1 ;
+        return y;
+    }
+
 
     ///////////////// refer to private functions here
 

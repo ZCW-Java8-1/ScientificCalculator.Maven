@@ -19,12 +19,8 @@ public class Console {
 
     public void calcRun() {
 
-        // While loop initiation
         onButton = true;
-
         String operator;
-
-        // Objects
         Scanner Calculator = new Scanner(System.in);
         ScientificFeatures switchSignFormula = new ScientificFeatures();
         Scanner inputEsc = new Scanner(System.in);
@@ -45,182 +41,231 @@ public class Console {
             firstNumber = Calculator.nextDouble();
 
             // Attempt to handle the error, but need a try/catch
+            if (firstNumber != answer) {
+                System.out.println("Incorrect operator");
+                do {
+                    System.out.println("Do you want to exit? \nPlease enter Y or press N to clear the display");
+                    String inputEscRead = inputEsc.next();
+                    if (inputEscRead.equalsIgnoreCase("Y")) {
+                        onButton = false;
+                    } else if (inputEscRead.equalsIgnoreCase("N")) {
+                        Console reRun = new Console();
+                        clear.clear();
+                        reRun.calcRun();
+                        wrongOperator = false;
+                    } else {
+                        System.out.println("Please enter the correct letter");
+                    }
+                    break;
+                } while (wrongOperator);
 
-<<<<<<< HEAD
-            // check if the operator sees a sign
-            System.out.println("Enter math operator to use for this calculation");
-            operator = Calculator.next();
+                // print calculator choice
+                System.out.print("Enter math operator to use for this calculation ");
+                operator = Calculator.next();
 
-
-            System.out.print("Enter second number ");
-            secondNumber = Calculator.nextDouble();
-
-            // switch operator for the operators
-            switch (operator) {
-                case "+":
-                    CoreFeatures additionFormula = new CoreFeatures();
-                    String additionFormulaRead = String.valueOf((int) additionFormula.add(firstNumber, secondNumber));
-=======
-            // print calculator choice
-            System.out.print("Enter math operator to use for this calculation ");
-            operator = Calculator.next();
-
-            System.out.print("Enter second number ");
-            secondNumber = Calculator.nextDouble();
-
-
-            switch (operator) {
-                case "+":
-                    CoreFeatures additionFormula = new CoreFeatures();
-                    String additionFormulaRead = String.valueOf(additionFormula.add(firstNumber, secondNumber));
->>>>>>> fec307c1f392ee6b5b77f8d988e4ba54fa0a37a6
-                    System.out.println(additionFormulaRead);
-                    break;
-                case "-":
-                    CoreFeatures subtractionFormula = new CoreFeatures();
-<<<<<<< HEAD
-                    String subtractionFormulaRead = String.valueOf((int) subtractionFormula.subtract(firstNumber, secondNumber));
-=======
-                    String subtractionFormulaRead = String.valueOf(subtractionFormula.subtract(firstNumber, secondNumber));
->>>>>>> fec307c1f392ee6b5b77f8d988e4ba54fa0a37a6
-                    System.out.println(subtractionFormulaRead);
-                    break;
-                case "/":
-                    CoreFeatures divisionFormula = new CoreFeatures();
-<<<<<<< HEAD
-                    String divisionFormulaRead = String.valueOf((int) divisionFormula.div(firstNumber, secondNumber));
-=======
-                    String divisionFormulaRead = String.valueOf(divisionFormula.div(firstNumber, secondNumber));
->>>>>>> fec307c1f392ee6b5b77f8d988e4ba54fa0a37a6
-                    System.out.println(divisionFormulaRead);
-                    break;
-                case "*":
-                    CoreFeatures multiplyFormula = new CoreFeatures();
-<<<<<<< HEAD
-                    String multiplyFormulaRead = String.valueOf((int) multiplyFormula.mult(firstNumber, secondNumber));
-=======
-                    String multiplyFormulaRead = String.valueOf(multiplyFormula.mult(firstNumber, secondNumber));
->>>>>>> fec307c1f392ee6b5b77f8d988e4ba54fa0a37a6
-                    System.out.println(multiplyFormulaRead);
-                    break;
-                case "**":
-                    ScientificFeatures squareFormula = new ScientificFeatures();
-<<<<<<< HEAD
-                    String squareFormulaPrint = String.valueOf((int) squareFormula.square(firstNumber));
-=======
-                    String squareFormulaPrint = String.valueOf(squareFormula.square(firstNumber));
->>>>>>> fec307c1f392ee6b5b77f8d988e4ba54fa0a37a6
-                    System.out.println(squareFormulaPrint);
-                    break;
-                case "***":
-                    ScientificFeatures cubeFormula = new ScientificFeatures();
-<<<<<<< HEAD
-                    String cubeFormulaPrint = String.valueOf((int) cubeFormula.cubeRoot(firstNumber));
-                case "+/-":
-                    String switchSignFomrulaRead = String.valueOf((int) switchSignFormula.switchSign(firstNumber));
-=======
-                    String cubeFormulaPrint = String.valueOf(cubeFormula.cubeRoot(firstNumber));
-                case "+/-":
-                    String switchSignFomrulaRead = String.valueOf(switchSignFormula.switchSign(firstNumber));
->>>>>>> fec307c1f392ee6b5b77f8d988e4ba54fa0a37a6
-                    System.out.println(switchSignFomrulaRead);
-                    break;
-                case "*/":
-                    ScientificFeatures squareRootFormula = new ScientificFeatures();
-                    String squareRootFormulaPrint = String.valueOf(squareRootFormula.squareRoot(firstNumber));
-                    System.out.println(squareRootFormulaPrint);
-                    break;
-                case "inverse":
-                    ScientificFeatures inverseFormula = new ScientificFeatures();
-                    String inverseFormulaRead = String.valueOf(inverseFormula.inverse(firstNumber));
-                    System.out.println(inverseFormulaRead);
-                    break;
-                case "sine":
-                    ScientificFeatures sineFormula = new ScientificFeatures();
-                    String sineFormulaRead = String.valueOf(sineFormula.sine(firstNumber));
-                    System.out.println(sineFormulaRead);
-                    break;
-                case "cos":
-                    ScientificFeatures cosineFormula = new ScientificFeatures();
-                    String cosineFormulaRead = String.valueOf(cosineFormula.cos(firstNumber));
-                    System.out.println(cosineFormulaRead);
-                    break;
-                case "tan":
-                    ScientificFeatures tanFormula = new ScientificFeatures();
-                    String tanFormulaRead = String.valueOf(tanFormula.tan(firstNumber));
-                    System.out.println(tanFormulaRead);
-                    break;
-                case "invsine":
-                    ScientificFeatures arcSine = new ScientificFeatures();
-                    String arcSineRead = String.valueOf(arcSine.inverseSine(firstNumber, secondNumber));
-                    System.out.println(arcSineRead);
-                    break;
-                case "invcosine":
-                    ScientificFeatures arcCosine = new ScientificFeatures();
-                    String arcCosineRead = String.valueOf(arcCosine.inverseCosine(firstNumber, secondNumber));
-                    System.out.println(arcCosineRead);
-                    break;
-                case "invtangent":
-                    ScientificFeatures arcTan = new ScientificFeatures();
-                    String arcTanFormula = String.valueOf(arcTan.inverseTangent(firstNumber, secondNumber));
-                    System.out.println(arcTanFormula);
-                    break;
-                case "fac":
-                    ScientificFeatures factorialFormula = new ScientificFeatures();
-                    String factorialFormulaRead = String.valueOf(factorialFormula.factorial(firstNumber));
-                    System.out.println(factorialFormulaRead);
-                    break;
-                default:
+                // Attempt to handle the error, but need a try/catch
+                if (!operator.equals("+/-") || !operator.equals("+") || !operator.equals("-") || !operator.equals("/") || !operator.equals("*/") ||
+                        !operator.equals("*") || !operator.equals("**") || !operator.equals("fac") || !operator.equals("sine") || !operator.equals("cosine") ||
+                        !operator.equals("tan") || !operator.equals("invsine") || !operator.equals("incosine") || !operator.equals("invtangent")) {
                     System.out.println("Incorrect operator");
-<<<<<<< HEAD
-                        break;
-            }
-
-            // Exit and restart
-            System.out.println("Do you want to exit? \nPlease enter Y or press N to clear the display");
-=======
                     do {
                         System.out.println("Do you want to exit? \nPlease enter Y or press N to clear the display");
                         String inputEscRead = inputEsc.next();
                         if (inputEscRead.equalsIgnoreCase("Y")) {
                             onButton = false;
                         } else if (inputEscRead.equalsIgnoreCase("N")) {
+                            Console reRun = new Console();
                             clear.clear();
-                            wrongOperator = false;
+                            reRun.calcRun();
                         } else {
                             System.out.println("Please enter the correct letter");
                         }
                         break;
                     } while (!wrongOperator);
+
+                    // check if the operator sees a sign
+                    if (operator.equalsIgnoreCase("+/-")) {
+                        String switchSignFomrulaRead = String.valueOf((int) switchSignFormula.switchSign(firstNumber));
+                        switchSignFormulaHolder = switchSignFomrulaRead;
+                        System.out.print("Enter second number ");
+                        secondNumber = Calculator.nextDouble();
+                        }
+                        System.out.println("Enter math operator to use for this calculation (if another negative number, please enter +/- again)");
+                        operator = Calculator.next();
+                        // Need a try catch method
+                        if (!operator.equals("+/-") || !operator.equals("+") || !operator.equals("-") || !operator.equals("/") || !operator.equals("*/") ||
+                                !operator.equals("*") || !operator.equals("**") || !operator.equals("fac") || !operator.equals("sine") || !operator.equals("cosine") ||
+                                !operator.equals("tan") || !operator.equals("invsine") || !operator.equals("incosine") || !operator.equals("invtangent")) {
+                            System.out.println("Incorrect operator");
+                            do {
+                                System.out.println("Do you want to exit? \nPlease enter Y or press N to clear the display");
+                                String inputEscRead = inputEsc.next();
+                                if (inputEscRead.equalsIgnoreCase("Y")) {
+                                    onButton = false;
+                                } else if (inputEscRead.equalsIgnoreCase("N")) {
+                                    clear.clear();
+                                } else {
+                                    System.out.println("Please enter the correct letter");
+                                }
+                                break;
+                            } while (!wrongOperator);
+                        }
+                        // operator sees a sign
+                        if (operator.equalsIgnoreCase("+/-")) {
+                            String switchSignFormulaReadSecond = String.valueOf((int) switchSignFormula.switchSign((secondNumber)));
+                            switchSignFormulaHolderNegSecond = switchSignFormulaReadSecond;
+                            System.out.println("Enter math operator to use for this calculation");
+                            operator = Calculator.next();
+                            // operator types in a plus, additoin
+                            if (operator.equalsIgnoreCase("+")) {
+                                CoreFeatures additionFormula = new CoreFeatures();
+                                String additionFormulaRead = String.valueOf((int) additionFormula.add(Double.parseDouble(switchSignFormulaHolder), Double.parseDouble(switchSignFormulaHolderNegSecond)));
+                                System.out.println(additionFormulaRead);
+                                System.out.println("Do you want to exit? \n Please enter Y or press N to clear the display");
+                                String inputEscRead = inputEsc.next();
+                                if (inputEscRead.equalsIgnoreCase("Y")) {
+                                    onButton = false;
+                                } else if (inputEscRead.equalsIgnoreCase("N")) {
+                                    System.out.println("\033[H\033[2J");
+                                    System.out.flush();
+                                } else {
+                                    System.out.println("Please enter the correct letter");
+                                }
+
+                            } else if (operator.equalsIgnoreCase("-")) {
+                                CoreFeatures subtractionFormula = new CoreFeatures();
+                                String subtractionFormulaRead = String.valueOf((int) subtractionFormula.subtract(Double.parseDouble(switchSignFormulaHolder), Double.parseDouble(switchSignFormulaHolderNegSecond)));
+                                System.out.println(subtractionFormulaRead);
+                                System.out.println("Do you want to exit? \n Please enter Y or press N to clear the display");
+                                String inputEscRead = inputEsc.next();
+                                if (inputEscRead.equalsIgnoreCase("Y")) {
+                                    onButton = false;
+                                } else if (inputEscRead.equalsIgnoreCase("N")) {
+                                    clear.clear();
+                                } else {
+                                    System.out.println("Please enter the correct letter");
+                                }
+                            }
+                        }
+                    } else {
+                        System.out.println("Enter math operator to use for this calculation");
+                        operator = Calculator.next();
+                        System.out.print("Enter second number ");
+                        secondNumber = Calculator.nextDouble();
+                    }
+
+
+                    switch (operator) {
+                        case "+":
+                            CoreFeatures additionFormula = new CoreFeatures();
+                            String additionFormulaRead = String.valueOf((int) additionFormula.add(firstNumber, secondNumber));
+                            System.out.println(additionFormulaRead);
+                            break;
+                        case "-":
+                            CoreFeatures subtractionFormula = new CoreFeatures();
+                            String subtractionFormulaRead = String.valueOf((int) subtractionFormula.subtract(firstNumber, secondNumber));
+                            System.out.println(subtractionFormulaRead);
+                            break;
+                        case "/":
+                            CoreFeatures divisionFormula = new CoreFeatures();
+                            String divisionFormulaRead = String.valueOf((int) divisionFormula.div(firstNumber, secondNumber));
+                            System.out.println(divisionFormulaRead);
+                            break;
+                        case "*":
+                            CoreFeatures multiplyFormula = new CoreFeatures();
+                            String multiplyFormulaRead = String.valueOf((int) multiplyFormula.mult(firstNumber, secondNumber));
+                            System.out.println(multiplyFormulaRead);
+                            break;
+                        case "**":
+                            ScientificFeatures squareFormula = new ScientificFeatures();
+                            String squareFormulaPrint = String.valueOf((int) squareFormula.square(firstNumber));
+                            System.out.println(squareFormulaPrint);
+                            break;
+                        case "***":
+                            ScientificFeatures cubeFormula = new ScientificFeatures();
+                            String cubeFormulaPrint = String.valueOf((int) cubeFormula.cubeRoot(firstNumber));
+                        case "+/-":
+                            String switchSignFomrulaRead = String.valueOf((int) switchSignFormula.switchSign(firstNumber));
+                            System.out.println(switchSignFomrulaRead);
+                            break;
+                        case "*/":
+                            ScientificFeatures squareRootFormula = new ScientificFeatures();
+                            String squareRootFormulaPrint = String.valueOf(squareRootFormula.squareRoot(firstNumber));
+                            System.out.println(squareRootFormulaPrint);
+                            break;
+                        case "inverse":
+                            ScientificFeatures inverseFormula = new ScientificFeatures();
+                            String inverseFormulaRead = String.valueOf(inverseFormula.inverse(firstNumber));
+                            System.out.println(inverseFormulaRead);
+                            break;
+                        case "sine":
+                            ScientificFeatures sineFormula = new ScientificFeatures();
+                            String sineFormulaRead = String.valueOf(sineFormula.sine(firstNumber));
+                            System.out.println(sineFormulaRead);
+                            break;
+                        case "cos":
+                            ScientificFeatures cosineFormula = new ScientificFeatures();
+                            String cosineFormulaRead = String.valueOf(cosineFormula.cos(firstNumber));
+                            System.out.println(cosineFormulaRead);
+                            break;
+                        case "tan":
+                            ScientificFeatures tanFormula = new ScientificFeatures();
+                            String tanFormulaRead = String.valueOf(tanFormula.tan(firstNumber));
+                            System.out.println(tanFormulaRead);
+                            break;
+                        case "invsine":
+                            ScientificFeatures arcSine = new ScientificFeatures();
+                            String arcSineRead = String.valueOf(arcSine.inverseSine(firstNumber, secondNumber));
+                            System.out.println(arcSineRead);
+                            break;
+                        case "invcosine":
+                            ScientificFeatures arcCosine = new ScientificFeatures();
+                            String arcCosineRead = String.valueOf(arcCosine.inverseCosine(firstNumber, secondNumber));
+                            System.out.println(arcCosineRead);
+                            break;
+                        case "invtangent":
+                            ScientificFeatures arcTan = new ScientificFeatures();
+                            String arcTanFormula = String.valueOf(arcTan.inverseTangent(firstNumber, secondNumber));
+                            System.out.println(arcTanFormula);
+                            break;
+                        case "fac":
+                            ScientificFeatures factorialFormula = new ScientificFeatures();
+                            String factorialFormulaRead = String.valueOf(factorialFormula.factorial(firstNumber));
+                            System.out.println(factorialFormulaRead);
+                            break;
+                        default:
+                            System.out.println("Incorrect operator");
+                            do {
+                                System.out.println("Do you want to exit? \nPlease enter Y or press N to clear the display");
+                                String inputEscRead = inputEsc.next();
+                                if (inputEscRead.equalsIgnoreCase("Y")) {
+                                    onButton = false;
+                                } else if (inputEscRead.equalsIgnoreCase("N")) {
+                                    clear.clear();
+                                    wrongOperator = false;
+                                } else {
+                                    System.out.println("Please enter the correct letter");
+                                }
+                                break;
+                            } while (!wrongOperator);
+                    }
+                    System.out.println("Do you want to exit? \n Please enter Y or press N to clear the display");
+                    String inputEscRead = inputEsc.next();
+                    if (inputEscRead.equalsIgnoreCase("Y")) {
+                        onButton = false;
+                    } else if (inputEscRead.equalsIgnoreCase("N")) {
+                        System.out.println("\033[H\033[2J");
+                        System.out.flush();
+                    } else {
+                        System.out.println("Please enter the correct letter");
+                    }
+                }
+
             }
-            System.out.println("Do you want to exit? \n Please enter Y or press N to clear the display");
->>>>>>> fec307c1f392ee6b5b77f8d988e4ba54fa0a37a6
-            String inputEscRead = inputEsc.next();
-            if (inputEscRead.equalsIgnoreCase("Y")) {
-                onButton = false;
-            } else if (inputEscRead.equalsIgnoreCase("N")) {
-                System.out.println("\033[H\033[2J");
-                System.out.flush();
-<<<<<<< HEAD
-                Console reRun = new Console();
-                reRun.calcRun();
-=======
->>>>>>> fec307c1f392ee6b5b77f8d988e4ba54fa0a37a6
-            } else {
-                System.out.println("Please enter the correct letter");
-            }
+
         }
-
     }
-<<<<<<< HEAD
-}
 
-
-
-=======
->>>>>>> fec307c1f392ee6b5b77f8d988e4ba54fa0a37a6
-
-}
 
 
 //

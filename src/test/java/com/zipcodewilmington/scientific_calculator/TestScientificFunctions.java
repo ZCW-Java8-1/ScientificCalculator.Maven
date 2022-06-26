@@ -3,6 +3,7 @@ package com.zipcodewilmington.scientific_calculator;
 import com.zipcodewilmington.scientificcalculator.ScientificCalc;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 
@@ -103,6 +104,35 @@ public class TestScientificFunctions {
         double expectedResult = Math.pow(Math.E, randomNum);
         double result = objSciCalcTest.invNatLog(randomNum);
         Assert.assertEquals(expectedResult,result,0.000000d);
+    }
+    @Test
+    public void abs(){
+        double testNum = 8;
+        double expectedResult = (Math.abs(testNum));
+        double result = objSciCalcTest.abs(testNum);
+        Assert.assertEquals(expectedResult, result, 0.00000000d);
+    }
+
+    @Test
+    public void factorial(){
+        long testNum = 8;
+        long expectedResult = 40320;
+        long result = objSciCalcTest.factorial(testNum);
+        Assert.assertEquals(expectedResult, result, 0.00000000d);
+    }
+
+    @Test
+    public void factorialFail(){
+        long testNum = 8;
+        long expectedResult = 94032;
+        long result = objSciCalcTest.factorial(3);
+        Assert.assertNotEquals(expectedResult, result);
+    }
+    @Test
+    public void Pi(){
+        long expectedResult = (long) Math.PI;
+        long result = (long) objSciCalcTest.pi();
+        Assert.assertEquals(expectedResult, result, 0.00000000d);
     }
 
 //    @Test

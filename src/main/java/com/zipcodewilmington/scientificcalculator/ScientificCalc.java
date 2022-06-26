@@ -57,41 +57,48 @@ public class ScientificCalc {
         return trigUnit.name();
     }
 
-    private double convertTrigUnit(double x) {
+    private double convertRadTrigUnit(double x) {
         if (getTrigMode() == "DEGREES") {
             return Math.toRadians(x);
         }
         return x;
     }
 
+    private double convertDegTrigUnit(double x) {
+        if (getTrigMode() == "RADIANS") {
+            return Math.toDegrees(x);
+        }
+        return x;
+    }
+
     public double sin(double x) {
-        double convertedNum = convertTrigUnit(x);
-        return Math.sin(convertedNum);
+        double convertedNum = convertDegTrigUnit(x);
+        return convertDegTrigUnit(Math.sin(convertedNum));
     }
 
     public double cos(double x) {
-        double convertedNum = convertTrigUnit(x);
-        return Math.cos(convertedNum);
+        double convertedNum = convertDegTrigUnit(x);
+        return convertDegTrigUnit(Math.cos(convertedNum));
     }
 
     public double tan(double x) {
-        double convertedNum = convertTrigUnit(x);
-        return Math.tan(convertedNum);
+        double convertedNum = convertDegTrigUnit(x);
+        return convertDegTrigUnit(Math.tan(convertedNum));
     }
 
     public double invSin(double x) {
-        double convertedNum = convertTrigUnit(x);
-        return Math.asin(convertedNum);
+        double convertedNum = convertDegTrigUnit(x);
+        return convertDegTrigUnit(Math.asin(convertedNum));
     }
 
     public double invCos(double x) {
-        double convertedNum = convertTrigUnit(x);
-        return Math.acos(convertedNum);
+        double convertedNum = convertDegTrigUnit(x);
+        return convertDegTrigUnit(Math.acos(convertedNum));
     }
 
     public double invTan(double x) {
-        double convertedNum = convertTrigUnit(x);
-        return Math.atan(convertedNum);
+        double convertedNum = convertDegTrigUnit(x);
+        return convertDegTrigUnit(Math.atan(convertedNum));
     }
 
     public static double log(double x) {

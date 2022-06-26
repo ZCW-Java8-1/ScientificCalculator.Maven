@@ -35,7 +35,7 @@ public class Operation {
         if (operation.equals("+")) result = add(num1, num2);
         else if (operation.equals("-")) result = subtract(num1, num2);
         else if (operation.equals("*")) result = multiply(num1, num2);
-        else if (operation.equals("/")) result = divide(num1, num2);
+        else if (operation.equals("/")) result = divide(num1, num2, displayVal);
         else if (operation.equals("^")) result = power(num1, num2);
 
         return result;
@@ -55,7 +55,7 @@ public class Operation {
             }
         }
         if (operation.equals("sq")) result = sq(n);
-        else if (operation.equals("sqrt")) result = Math.sqrt(n);
+        else if (operation.equals("sqrt")) result = sqrt(n, displayVal);
         else if (operation.equals("inverse")) result = inverse(n);
         else if (operation.equals("invert")) result = invert(n);
         else if (operation.equals("log")) result = Math.log10(n);
@@ -107,9 +107,14 @@ public class Operation {
         return num1 * num2;
     }
     // Division
-    public static double divide(double num1, double num2) {
+    // We pass displayVal as a method as a way to store displayVal in "memory"
+    // This way, if an error occurs, we can set the current value displayed on the calculator to the displayVal
+    public static double divide(double num1, double num2, double displayVal) {
 
-        return num1 / num2;
+        if (num2 == 0.0) {
+            System.out.println("Error: cannot divide by zero, please try again.");
+            return displayVal;
+        } else return num1 / num2;
     }
     // Variable exponentiation
     public static double power(double num1, double num2) {
@@ -130,6 +135,13 @@ public class Operation {
     public static double invert(double n) {
 
         return n * -1;
+    }
+
+    public static double sqrt(double n, double displayVal) {
+        if (n < 0.0) {
+            System.out.println("Error: cannot take the square root of a negative number, please try again.");
+            return displayVal;
+        } else return Math.sqrt(n);
     }
 
 }

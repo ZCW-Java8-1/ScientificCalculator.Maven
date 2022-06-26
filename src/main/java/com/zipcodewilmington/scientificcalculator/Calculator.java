@@ -72,7 +72,7 @@ public class Calculator {
         else if (displayMode.equals("binary")) System.out.println("Current value: " + Long.toBinaryString(Double.doubleToRawLongBits(displayVal)));
         else System.out.println("Current value: " + displayVal);
     }
-    // Method that prints out a list of operations with the operation 'help'
+    // Method that prints out a list of operations
     public static void printHelp() {
         System.out.println("Here are the list of operations:");
         System.out.println("Addition: + ");

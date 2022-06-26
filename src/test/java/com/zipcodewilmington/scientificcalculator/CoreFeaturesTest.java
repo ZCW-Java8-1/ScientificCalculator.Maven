@@ -30,7 +30,7 @@ class CoreFeaturesTest {
 
     @Test
     void divTest() {
-        double divT = allTests.div(5, 10);
-        Assertions.assertEquals(0.5, divT);
+        double divT = allTests.div(4, 6);
+        Assertions.assertEquals(0, divT);
     }
 }

@@ -34,8 +34,8 @@ public class ScientificFeaturesTest {
     @Test
     void TestInverse() {
         ScientificFeatures inverseTest = new ScientificFeatures();
-        double inverseT = inverseTest.inverse(0);
-        Assertions.assertEquals("Err",inverseT);
+        double inverseT = inverseTest.inverse(5);
+        Assertions.assertEquals(0.20,inverseT);
 
     }
 

@@ -3,19 +3,19 @@ package com.zipcodewilmington.scientificcalculator;
 public class BasicCalculator {
     String name;
 
-    public int add(int x, int y) {
-        return x + y;
+    public double add(double screen, double num2 ) {
+        return screen + num2;
     }
-    public int subtract(int x, int y) {
-        return x - y;
+    public double subtract(double screen, double num2 ) {
+        return screen - num2;
     }
-    public int multiply(int x, int y) {
-        return x * y;
+    public double multiply(double screen, double num2 ) {
+        return screen * num2;
     }
-    public int divide(int x, int y) {
-        return x / y;
+    public double divide(double screen, double num2 ) {
+        return screen / num2;
     }
-    public int modulus(int x, int y) {
-        return x % y;
+    public double modulus(double screen, double num2 ) {
+        return screen % num2;
     }
 }

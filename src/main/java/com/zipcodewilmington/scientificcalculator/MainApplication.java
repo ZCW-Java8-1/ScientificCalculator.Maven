@@ -16,6 +16,7 @@ public class MainApplication {
 //        Console.println("The user input %s as a d", d);
         Scanner input = new Scanner(System.in);
         ScientificFunctionality sf = new ScientificFunctionality();
+        BasicCalculator bc = new BasicCalculator();
 
         System.out.print("Enter number: ");
         double screen = input.nextDouble();
@@ -32,22 +33,32 @@ public class MainApplication {
             case "add":
                 System.out.println("Enter number: ");
                 double num2 = input.nextDouble();
-                Console.println("Answer: %s", screen + num2);
+                screen = bc.add(screen, num2);
+                Console.println("Answer: %s", screen);
                 break;
             case "subtract":
                 System.out.println("Enter number: ");
                 num2 = input.nextDouble();
-                Console.println("Answer: %s", screen - num2);
+                screen = bc.subtract(screen, num2);
+                Console.println("Answer: %s", screen);
                 break;
             case "multiply":
                 System.out.println("Enter number: ");
                 num2 = input.nextDouble();
-                Console.println("Answer: %s", screen * num2);
+                screen = bc.multiply(screen, num2);
+                Console.println("Answer: %s", screen);
                 break;
             case "divide":
                 System.out.println("Enter number: ");
                 num2 = input.nextDouble();
-                Console.println("Answer: %s", screen / num2);
+                screen = bc.divide(screen, num2);
+                Console.println("Answer: %s", screen);
+                break;
+            case "modulus":
+                System.out.println("Enter number: ");
+                num2 = input.nextDouble();
+                screen = bc.modulus(screen, num2);
+                Console.println("Answer: %s", screen);
                 break;
             case "square":
                 screen *= screen;
@@ -58,8 +69,19 @@ public class MainApplication {
                 Console.println("Answer: %s", screen);
                 break;
             case "exponent":
+                System.out.println("Enter number: ");
+                num2 = input.nextDouble();
+                screen = Math.pow(screen, num2);
+                Console.println("Answer: %s", screen);
+                break;
             case "inverse":
+                screen = 1/screen;
+                Console.println("Answer: %s", screen);
+                break;
             case "negative":
+                screen = -screen;
+                Console.println("Answer: %s", screen);
+                break;
             case "sin":
                 screen = sf.calcSine(screen);
                 Console.println("Answer: %s", screen);

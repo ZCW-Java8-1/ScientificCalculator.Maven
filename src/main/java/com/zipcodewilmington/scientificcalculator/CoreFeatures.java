@@ -1,6 +1,10 @@
 package com.zipcodewilmington.scientificcalculator;
 
 import java.util.Scanner;
+import java.awt.DisplayMode;
+import java.awt.GraphicsDevice;
+import java.awt.GraphicsEnvironment;
+import javax.swing.JFrame;
 
 public class CoreFeatures {
 
@@ -26,9 +30,22 @@ public class CoreFeatures {
         displayMode = givenDisplayMode;
     }
 
+    public static void setDisMode() {
+        JFrame frame = new JFrame();
+        frame.setSize(800, 600);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        GraphicsDevice graphics = GraphicsEnvironment.getLocalGraphicsEnvironment()
+                .getDefaultScreenDevice();
+        graphics.setDisplayMode(new DisplayMode(800, 600, 32, 60));
+        frame.setVisible(true);
+    }
+
+
+
+
 
     public void calc(){
-        double answer = 0;
+            answer = 0;
         String operator;
 
         Scanner Calculator = new Scanner(System.in);
@@ -46,16 +63,20 @@ public class CoreFeatures {
 
         switch (operator) {
             case "+":
-                answer = firstNumber + secondNumber;
+                Console sum = new Console();
+                answer = Double.parseDouble(String.valueOf(sum.add(firstNumber, secondNumber)));
                 break;
             case "-":
-                answer = firstNumber - secondNumber;
+                Console sub = new Console();
+                answer = Double.parseDouble(String.valueOf(sub.subtraction(firstNumber, secondNumber)));
                 break;
             case "/":
-                answer = firstNumber / secondNumber;
+                Console div = new Console();
+                answer = Double.parseDouble(String.valueOf(div.division(firstNumber, secondNumber)));
                 break;
             case "*":
-                answer = firstNumber * secondNumber;
+                Console multiply = new Console();
+                answer = Double.parseDouble(String.valueOf(multiply.multiplication(firstNumber, secondNumber)));
                 break;
             default:
                 System.out.println("Incorrect operator");

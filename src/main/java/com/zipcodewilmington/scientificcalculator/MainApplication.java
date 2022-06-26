@@ -28,7 +28,9 @@ public class MainApplication {
 //
 
         CoreFeatures x = new CoreFeatures();
-        x.calc();
+      //  x.calc();
+
+        x.setDisMode();
 
 
 //        ScientificFeatures x = new ScientificFeatures();

@@ -5,7 +5,7 @@ import java.sql.SQLOutput;
 public class Operation {
     // Two number operations
     public static double twoNumOp(String operation, double displayVal) {
-        double num1 = 0, num2 = 0, result = 0;
+        double num1 = 0, num2 = 0, result = 0, memoryVal = 0;
 
         // Scan first number and store
         String s1 = Console.getStringInput("Enter the first number to perform operation (leave blank to use current value): ");

@@ -8,6 +8,8 @@ public class Calculator {
 
         double displayVal = 0.0;
 
+        double memoryVal = 0.0;
+
         String displayMode = "decimal";
 
         System.out.println("Current value: " + displayVal);
@@ -20,6 +22,17 @@ public class Calculator {
             else if (operator.equals("switch")) {
                 displayMode = switchDisplayMode(displayMode);
                 System.out.println("The display mode is now " + displayMode + ".");
+            }
+            else if (operator.equals("M+")) {
+                memoryVal = displayVal;
+                System.out.println("Memory Value: " + displayVal);
+            }
+            else if (operator.equals("MRC")) {
+                System.out.println("Memory Value: " + memoryVal);
+            }
+            else if (operator.equals("MC")){
+                memoryVal=0;
+                System.out.println("Memory Value: " + memoryVal);
             }
             else if (operator.equals("+")) displayVal = Operation.twoNumOp("+", displayVal);
             else if (operator.equals("-")) displayVal = Operation.twoNumOp("-", displayVal);

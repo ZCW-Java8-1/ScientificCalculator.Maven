@@ -11,7 +11,7 @@ import java.text.NumberFormat;
 public class CalcGUI extends ScientificCalc {
     private JFrame frame;
     private JTextField field;
-    private double tmp1, tmp2, result;
+    private double tmp1, tmp2, result, currVal;
     private String operation;
     private Boolean flagOverwrite;
     private Boolean flagHasOverwritten;
@@ -43,6 +43,8 @@ public class CalcGUI extends ScientificCalc {
         field.setPreferredSize(new Dimension(400, 80));
         field.setText("");
         field.setEditable(false);
+        field.setHorizontalAlignment(SwingConstants.RIGHT);
+        field.setFont(new Font("Roboto", Font.BOLD, 30));
         frame.add(field, BorderLayout.NORTH);
         //=========================== Number pad panel =========================
         // number panel
@@ -53,6 +55,9 @@ public class CalcGUI extends ScientificCalc {
         Action opActionListener = new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if (flagIsError) {
+                    return;
+                }
                 JButton button = (JButton) e.getSource();
                 String op = button.getText();
                 if (op.equals("xʸ")) {
@@ -64,7 +69,7 @@ public class CalcGUI extends ScientificCalc {
                     return;
                 } else if (operation != "") {
                     tmp1 = handleOperation(operation, tmp1, Double.valueOf(field.getText()));
-                    field.setText(String.valueOf(tmp1));
+                    field.setText(convertForDisplayMode(tmp1));
                 } else {
                     tmp1 = Double.valueOf(field.getText());
                 }
@@ -79,6 +84,9 @@ public class CalcGUI extends ScientificCalc {
         bMPlus.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if (flagIsError) {
+                    return;
+                }
                 setMemory(addition(getMemory(), Double.valueOf(field.getText())));
             }
         });
@@ -86,6 +94,9 @@ public class CalcGUI extends ScientificCalc {
         bMC.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if (flagIsError) {
+                    return;
+                }
                 setMemory(0);
             }
         });
@@ -93,6 +104,9 @@ public class CalcGUI extends ScientificCalc {
         bMRC.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if (flagIsError) {
+                    return;
+                }
                 field.setText(String.valueOf(getMemory()));
             }
         });
@@ -100,6 +114,9 @@ public class CalcGUI extends ScientificCalc {
         bSquare.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if (flagIsError) {
+                    return;
+                }
                 double x = Double.valueOf(field.getText());
                 field.setText(String.valueOf(squared(x)));
             }
@@ -108,6 +125,9 @@ public class CalcGUI extends ScientificCalc {
         bSRoot.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if (flagIsError) {
+                    return;
+                }
                 double x = Double.valueOf(field.getText());
                 field.setText(String.valueOf(squareRoot(x)));
             }
@@ -123,6 +143,7 @@ public class CalcGUI extends ScientificCalc {
                 result = 0;
                 flagHasOverwritten = false;
                 flagOverwrite = true;
+                flagIsError = false;
             }
         });
         JButton bExpo = new JButton("xʸ");
@@ -130,9 +151,16 @@ public class CalcGUI extends ScientificCalc {
         // Division by 0 possible!
         JButton bInv = new JButton("1/x");
         bInv.addActionListener(new ActionListener() {
+
             @Override
             public void actionPerformed(ActionEvent e) {
+                if (flagIsError) {
+                    return;
+                }
                 double x = Double.valueOf(field.getText());
+                if (x == 0) {
+
+                }
                 field.setText(String.valueOf(inverse(x)));
             }
         });
@@ -140,6 +168,9 @@ public class CalcGUI extends ScientificCalc {
         bAbs.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if (flagIsError) {
+                    return;
+                }
                 double x = Double.valueOf(field.getText());
                 field.setText(String.valueOf(abs(x)));
             }
@@ -159,6 +190,9 @@ public class CalcGUI extends ScientificCalc {
         bDot.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if (flagIsError) {
+                    return;
+                }
                 String fieldTxt = field.getText();
                 if (!fieldTxt.contains(".")) {
                     field.setText(fieldTxt.concat("."));
@@ -169,6 +203,9 @@ public class CalcGUI extends ScientificCalc {
         bPlusMinus.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if (flagIsError) {
+                    return;
+                }
                 double x = Double.valueOf(field.getText());
                 field.setText(String.valueOf(invert(x)));
             }
@@ -212,6 +249,9 @@ public class CalcGUI extends ScientificCalc {
         bBackSpace.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if (flagIsError) {
+                    return;
+                }
                 String txt = field.getText();
                 if (txt.length() == 1) {
                     field.setText("0");
@@ -228,6 +268,9 @@ public class CalcGUI extends ScientificCalc {
         Action numActionListener = new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if (flagIsError) {
+                    return;
+                }
                 JButton button = (JButton) e.getSource();
                 if (flagOverwrite && !flagHasOverwritten) {
                     field.setText(button.getText());
@@ -287,6 +330,10 @@ public class CalcGUI extends ScientificCalc {
                 operation = "";
                 flagOverwrite = true;
                 flagHasOverwritten = false;
+                if (Double.isNaN(result)) {
+                    flagIsError = true;
+                    field.setText("Err");
+                }
             }
         });
 
@@ -308,6 +355,9 @@ public class CalcGUI extends ScientificCalc {
         bLog.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if (flagIsError) {
+                    return;
+                }
                 double x = Double.valueOf(field.getText());
                 field.setText(String.valueOf(log(x)));
             }
@@ -316,6 +366,9 @@ public class CalcGUI extends ScientificCalc {
         bILog.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if (flagIsError) {
+                    return;
+                }
                 double x = Double.valueOf(field.getText());
                 field.setText(String.valueOf(invLog(x)));
             }
@@ -324,6 +377,9 @@ public class CalcGUI extends ScientificCalc {
         bINatLog.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if (flagIsError) {
+                    return;
+                }
                 double x = Double.valueOf(field.getText());
                 field.setText(String.valueOf(invNatLog(x)));
             }
@@ -332,6 +388,9 @@ public class CalcGUI extends ScientificCalc {
         bNatLog.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if (flagIsError) {
+                    return;
+                }
                 double x = Double.valueOf(field.getText());
                 field.setText(String.valueOf(natLog(x)));
             }
@@ -340,6 +399,9 @@ public class CalcGUI extends ScientificCalc {
         bFactorial.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if (flagIsError) {
+                    return;
+                }
                 double x = Double.valueOf(field.getText());
                 field.setText(String.valueOf(factorial(x)));
             }
@@ -348,6 +410,9 @@ public class CalcGUI extends ScientificCalc {
         bSin.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if (flagIsError) {
+                    return;
+                }
                 double x = Double.valueOf(field.getText());
                 field.setText(String.valueOf(sin(x)));
             }
@@ -356,6 +421,9 @@ public class CalcGUI extends ScientificCalc {
         bCos.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if (flagIsError) {
+                    return;
+                }
                 double x = Double.valueOf(field.getText());
                 field.setText(String.valueOf(cos(x)));
             }
@@ -364,6 +432,9 @@ public class CalcGUI extends ScientificCalc {
         bTan.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if (flagIsError) {
+                    return;
+                }
                 double x = Double.valueOf(field.getText());
                 field.setText(String.valueOf(tan(x)));
             }
@@ -372,6 +443,9 @@ public class CalcGUI extends ScientificCalc {
         bISin.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if (flagIsError) {
+                    return;
+                }
                 double x = Double.valueOf(field.getText());
                 field.setText(String.valueOf(invSin(x)));
             }
@@ -380,6 +454,9 @@ public class CalcGUI extends ScientificCalc {
         bITan.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if (flagIsError) {
+                    return;
+                }
                 double x = Double.valueOf(field.getText());
                 field.setText(String.valueOf(invTan(x)));
             }
@@ -388,6 +465,9 @@ public class CalcGUI extends ScientificCalc {
         bICos.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if (flagIsError) {
+                    return;
+                }
                 double x = Double.valueOf(field.getText());
                 field.setText(String.valueOf(invCos(x)));
             }
@@ -396,6 +476,9 @@ public class CalcGUI extends ScientificCalc {
         bDisplayMode.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if (flagIsError) {
+                    return;
+                }
                 switchDisplayMode();
                 bDisplayMode.setText(getDisplayMode());
             }
@@ -404,6 +487,9 @@ public class CalcGUI extends ScientificCalc {
         bTrigMode.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if (flagIsError) {
+                    return;
+                }
                 switchUnitsMode();
                 bTrigMode.setText(TrigUnit.valueOf(getTrigMode()).getAbbrev());
             }
@@ -412,6 +498,9 @@ public class CalcGUI extends ScientificCalc {
         bPi.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if (flagIsError) {
+                    return;
+                }
                 field.setText(String.valueOf(Math.PI));
             }
         });

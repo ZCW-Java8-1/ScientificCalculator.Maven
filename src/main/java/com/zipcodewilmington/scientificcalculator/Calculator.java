@@ -13,62 +13,61 @@ public class Calculator {
     public void Arithmetic(String[] args) {
         switch (choiceString) {
             // Case 1
-            case "+":
+            case "+" -> {
                 // Print statement corresponding case
 
                 // break keyword terminates the
-                result = add(x,y);
+                result = add(x, y);
                 System.out.println("one");
-                break;
+            }
             // Case 2
-            case "-":
+            case "-" -> {
                 // Print statement corresponding case
-                result = subtract(x,y);
+                result = subtract(x, y);
                 System.out.println("two");
-                break;
+            }
 
             // Case 3
-            case "*":
+            case "*" -> {
                 // Print statement corresponding case
-                result = multiply(x,y);
+                result = multiply(x, y);
                 System.out.println("three");
-                break;
+            }
             // Case 4
-            case "/":
+            case "/" -> {
                 // Print statement corresponding case
-                result = divide(x,y);
+                result = divide(x, y);
                 System.out.println("four");
-                break;
-            case "square":
+            }
+            case "square" -> {
                 // Print statement corresponding case
-                result = sqr(x,y);
+                result = sqr(x);
                 System.out.println("five");
-                break;
-            case "sqrt":
+            }
+            case "sqrt" -> {
                 // Print statement corresponding case
-                result = root(x,y);
+                result = root(x);
                 System.out.println("six");
-                break;
-            case "1/x":
+            }
+            case "1/x" -> {
                 // Print statement corresponding case
-                result = inverse(x,y);
+                result = inverse(x);
                 System.out.println("seven");
-                break;
-            case "+/-":
+            }
+            case "+/-" -> {
                 // Print statement corresponding case
-                result = invertSign(x,y);
+                result = invertSign(x);
                 System.out.println("eight");
-                break;
-            case "x^y":
+            }
+            case "x^y" -> {
                 // Print statement corresponding case
-                result = sqrY(x,y);
+                result = sqrY(x, y);
                 System.out.println("eight");
-                break;
-            default:
+            }
+            default ->
 
                 // Print statement corresponding case
-                System.out.println("Err, no match");
-            break;
+                    System.out.println("Err, no match");
         }
         ans = String.format(String.valueOf(result));
 
@@ -95,29 +94,24 @@ public class Calculator {
         return x / y;
     }
 
-    public double sqr(double x, double y) {
-        y = Math.pow(x,2);
-        return y ;  //
+    public double sqr(double x) {
+        return Math.pow(x, 2);  //
     }
 
     public double sqrY(double x, double y) {
-        double result = Math.pow(x, y);
-        return result;
+        return Math.pow(x, y);
     }
 
-    public double root(double x, double y) {
-        y = Math.sqrt(x);
-        return y;
+    public double root(double x) {
+        return Math.sqrt(x);
     }
 
-    public double inverse(double x, double y) {
-        y = Math.expm1(x);
-        return y;
+    public double inverse(double x) {
+        return Math.expm1(x);
     }
 
-    public double invertSign(double x, double y) {
-        y = x*-1;
-        return y;
+    public double invertSign(double x) {
+        return x*-1;
     }
 
 

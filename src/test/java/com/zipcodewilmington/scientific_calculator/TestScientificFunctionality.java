@@ -9,7 +9,7 @@ public class TestScientificFunctionality {
     ScientificFunctionality sciFunction = new ScientificFunctionality();
     @Test
     public void testCalcLog() {
-        double expected = 0.60205999132;
+        double expected = 0.6020599913279624;
         double input = 4;
         double actual = sciFunction.calcLog(input);
         Assertions.assertEquals(expected, actual);
@@ -25,7 +25,7 @@ public class TestScientificFunctionality {
 
     @Test
     public void testCalcNaturalLog() {
-        double expected = 1.60943791243;
+        double expected = 1.6094379124341003;
         double input = 5;
         double actual = sciFunction.calcNaturalLog(input);
         Assertions.assertEquals(expected, actual);
@@ -33,7 +33,7 @@ public class TestScientificFunctionality {
 
     @Test
     public void testCalcInverseNaturalLog() {
-        double expected = 20.0855369232;
+        double expected = 20.085536923187668;
         double input = 3;
         double actual = sciFunction.calcInverseNaturalLog(input);
         Assertions.assertEquals(expected, actual);
@@ -41,9 +41,9 @@ public class TestScientificFunctionality {
 
     @Test
     public void testCalcSine() {
-        double expected = 0.8414709848;
+        double expected = 0;
         //input in radians
-        double input = 1;
+        double input = 0;
         double actual = sciFunction.calcSine(input);
         Assertions.assertEquals(expected, actual);
     }
@@ -59,37 +59,43 @@ public class TestScientificFunctionality {
 
     @Test
     public void testCalcTangent() {
-        double expected = 1.55740772465;
+        double expected = 0.54630248984;
         //input in radians
-        double input =1 ;
+        double input =0.5;
         double actual = sciFunction.calcTangent(input);
         Assertions.assertEquals(expected, actual);
     }
 
     @Test
     public void testCalcInverseSine() {
-        double expected = 0.52359877559;
+        double expected = 0;
         //input in radians
-        double input = 0.5;
+        double input = 0;
         double actual = sciFunction.calcInverseCosine(input);
         Assertions.assertEquals(expected, actual);
     }
 
     @Test
     public void testCalcInverseCosine() {
-        double expected = 0;
+        double expected = 1.5707963267948966;
         //input in radians
-        double input = 1;
+        double input = 0;
         double actual = sciFunction.calcInverseCosine(input);
         Assertions.assertEquals(expected, actual);
     }
 
     @Test
     public void testCalcInverseTangent() {
-        double expected = 1.10714871779;
+        double expected = 0.78539816339;
         //input in radians
-        double input = 2;
+        double input = 1;
         double actual = sciFunction.calcInverseTangent(input);
         Assertions.assertEquals(expected, actual);
     }
+    @Test
+    public void testSwitchUnitsMode(){
+        String expected = "Degrees";
+
+    }
+
 }

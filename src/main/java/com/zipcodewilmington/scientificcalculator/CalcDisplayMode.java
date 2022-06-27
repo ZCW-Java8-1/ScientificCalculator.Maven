@@ -22,10 +22,10 @@ public enum CalcDisplayMode {
         return abbrev;
     }
     public int nextMode() {
-        if (modeNum == 4) {
+        if (this.modeNum == 4) {
             return this.DECIMAL.modeNum;
         }
-        return modeNum++;
+        return this.modeNum + 1;
     }
 
     public static CalcDisplayMode getModeByNum(int num) {

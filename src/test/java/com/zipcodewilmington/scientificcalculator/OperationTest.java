@@ -38,7 +38,7 @@ public class OperationTest {
     public void testDivide() {
         int num1 = 10; int num2 = 2;
         int expectedResult = 5;
-        double result = objOperationTest.divide(num1, num2);
+        double result = objOperationTest.divide(num1, num2, 0);
         Assert.assertEquals(expectedResult, result, 0.01);
     }
 

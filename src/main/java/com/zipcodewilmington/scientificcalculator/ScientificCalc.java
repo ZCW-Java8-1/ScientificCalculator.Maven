@@ -1,9 +1,18 @@
 package com.zipcodewilmington.scientificcalculator;
 
 enum TrigUnit {
-    DEGREES,
-    RADIANS;
+    DEGREES("DEG"),
+    RADIANS("RAD");
 
+    String abbrev;
+
+    private TrigUnit(String abbrev) {
+        this.abbrev = abbrev;
+    }
+
+    public String getAbbrev() {
+        return abbrev;
+    }
     protected TrigUnit nextMode() {
         if (this.name() == "DEGREES") {
             return RADIANS;
@@ -15,7 +24,7 @@ enum TrigUnit {
 }
 
 public class ScientificCalc extends Calculations {
-    private CalcDisplayMode mode;
+    protected CalcDisplayMode mode;
     private double memory;
     private TrigUnit trigUnit;
 
@@ -26,7 +35,7 @@ public class ScientificCalc extends Calculations {
     }
 
     protected void switchDisplayMode() {
-        mode = CalcDisplayMode.getModeByNum(mode.nextMode());
+        setDisplayMode(CalcDisplayMode.getModeByNum(mode.nextMode()));
     }
 
     protected void switchDisplayMode(String mode) {
@@ -43,18 +52,31 @@ public class ScientificCalc extends Calculations {
         return memory;
     }
 
-    private void switchUnitsMode() {
+    protected void switchUnitsMode() {
         trigUnit = trigUnit.nextMode();
     }
 
-    private void switchUnitsMode(String mode) {
+    protected void switchUnitsMode(String mode) {
         trigUnit = TrigUnit.valueOf(mode);
     }
 
-
+    public String getDisplayMode() {
+        return mode.getAbbrev();
+    }
+    public void setDisplayMode(CalcDisplayMode mode) {
+        this.mode = mode;
+    }
 
     public String getTrigMode() {
         return trigUnit.name();
+    }
+
+    public double getMemory() {
+        return memory;
+    }
+
+    public void setMemory(double x) {
+        this.memory = x;
     }
 
     private double convertRadTrigUnit(double x) {
@@ -125,9 +147,9 @@ public class ScientificCalc extends Calculations {
         return Math.abs(x);
     }
 
-    public static long factorial(long x) {
-        long product = 1;
-        for (long i = x; i > 0; i--) {
+    public static double factorial(double x) {
+        double product = 1;
+        for (double i = x; i > 0; i--) {
             product *= i;
         }
         return product;

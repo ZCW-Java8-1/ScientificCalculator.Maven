@@ -12,8 +12,8 @@ public class CalcGUI extends ScientificCalc {
     private JTextField field;
     private double tmp1, tmp2, result;
     private String operation;
-    private Boolean hasDecimal;
     private Boolean flagOverwrite;
+    private Boolean flagHasOverwritten;
 
     public CalcGUI() {
         super();
@@ -21,8 +21,8 @@ public class CalcGUI extends ScientificCalc {
         tmp2 = 0;
         result = 0;
         operation = "";
-        hasDecimal = false;
         flagOverwrite = false;
+        flagHasOverwritten = false;
         init();
     }
 
@@ -47,14 +47,73 @@ public class CalcGUI extends ScientificCalc {
 
 
         JButton bMPlus = new JButton("M+");
+        bMPlus.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setMemory(addition(getMemory(), Double.valueOf(field.getText())));
+            }
+        });
         JButton bMC = new JButton("MC");
+        bMC.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setMemory(0);
+            }
+        });
         JButton bMRC = new JButton("MRC");
+        bMRC.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                field.setText(String.valueOf(getMemory()));
+            }
+        });
         JButton bSquare = new JButton("x²");
+        bSquare.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                double x = Double.valueOf(field.getText());
+                field.setText(String.valueOf(squared(x)));
+            }
+        });
         JButton bSRoot = new JButton("√x");
+        bSRoot.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                double x = Double.valueOf(field.getText());
+                field.setText(String.valueOf(squareRoot(x)));
+            }
+        });
         JButton bClear = new JButton("C");
+        bClear.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                field.setText("0");
+                tmp1= 0;
+                tmp2= 0;
+                operation = "";
+                result = 0;
+                flagHasOverwritten = false;
+                flagOverwrite = true;
+            }
+        });
         JButton bExpo = new JButton("xʸ");
+        // Division by 0 possible!
         JButton bInv = new JButton("1/x");
+        bInv.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                double x = Double.valueOf(field.getText());
+                field.setText(String.valueOf(inverse(x)));
+            }
+        });
         JButton bAbs = new JButton("|x|");
+        bAbs.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                double x = Double.valueOf(field.getText());
+                field.setText(String.valueOf(abs(x)));
+            }
+        });
 
         JButton b0 = new JButton("0");
         JButton b1 = new JButton("1");
@@ -67,7 +126,23 @@ public class CalcGUI extends ScientificCalc {
         JButton b8 = new JButton("8");
         JButton b9 = new JButton("9");
         JButton bDot = new JButton(".");
+        bDot.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String fieldTxt = field.getText();
+                if (!fieldTxt.contains(".")) {
+                    field.setText(fieldTxt.concat("."));
+                }
+            }
+        });
         JButton bPlusMinus = new JButton("+/-");
+        bPlusMinus.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                double x = Double.valueOf(field.getText());
+                field.setText(String.valueOf(invert(x)));
+            }
+        });
 
         calcPanel.add(bMPlus);
         calcPanel.add(bMC);
@@ -120,19 +195,116 @@ public class CalcGUI extends ScientificCalc {
         leftPanel.setLayout(new GridLayout(7, 2));
 
         JButton bLog = new JButton("Log");
+        bLog.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                double x = Double.valueOf(field.getText());
+                field.setText(String.valueOf(log(x)));
+            }
+        });
         JButton bILog = new JButton("10ˣ");
+        bILog.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                double x = Double.valueOf(field.getText());
+                field.setText(String.valueOf(invLog(x)));
+            }
+        });
         JButton bINatLog = new JButton("eˣ");
+        bINatLog.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                double x = Double.valueOf(field.getText());
+                field.setText(String.valueOf(invNatLog(x)));
+            }
+        });
         JButton bNatLog = new JButton("Ln");
+        bNatLog.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                double x = Double.valueOf(field.getText());
+                field.setText(String.valueOf(natLog(x)));
+            }
+        });
         JButton bFactorial = new JButton("x!");
+        bFactorial.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                double x = Double.valueOf(field.getText());
+                field.setText(String.valueOf(factorial(x)));
+            }
+        });
         JButton bSin = new JButton("sin");
+        bSin.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                double x = Double.valueOf(field.getText());
+                field.setText(String.valueOf(sin(x)));
+            }
+        });
         JButton bCos = new JButton("cos");
+        bCos.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                double x = Double.valueOf(field.getText());
+                field.setText(String.valueOf(cos(x)));
+            }
+        });
         JButton bTan = new JButton("tan");
+        bTan.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                double x = Double.valueOf(field.getText());
+                field.setText(String.valueOf(tan(x)));
+            }
+        });
         JButton bISin = new JButton("sin⁻¹");
+        bISin.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                double x = Double.valueOf(field.getText());
+                field.setText(String.valueOf(invSin(x)));
+            }
+        });
         JButton bITan = new JButton("tan⁻¹");
+        bITan.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                double x = Double.valueOf(field.getText());
+                field.setText(String.valueOf(invTan(x)));
+            }
+        });
         JButton bICos = new JButton("cos⁻¹");
+        bICos.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                double x = Double.valueOf(field.getText());
+                field.setText(String.valueOf(invCos(x)));
+            }
+        });
         JButton bDisplayMode = new JButton("Dec");
+        bDisplayMode.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                switchDisplayMode();
+                bDisplayMode.setText(getDisplayMode());
+            }
+        });
         JButton bTrigMode = new JButton("Deg");
+        bTrigMode.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                switchUnitsMode();
+                bTrigMode.setText(TrigUnit.valueOf(getTrigMode()).getAbbrev());
+            }
+        });
         JButton bPi = new JButton("π");
+        bPi.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                field.setText(String.valueOf(Math.PI));
+            }
+        });
 
         leftPanel.add(bLog);
         leftPanel.add(bILog);
@@ -154,10 +326,11 @@ public class CalcGUI extends ScientificCalc {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JButton button = (JButton) e.getSource();
-                if (!flagOverwrite) {
-                    field.setText(field.getText().concat(button.getText()));
-                } else {
+                if (flagOverwrite && !flagHasOverwritten) {
                     field.setText(button.getText());
+                    flagHasOverwritten = true;
+                } else {
+                    field.setText(field.getText().concat(button.getText()));
                 }
             }
         };
@@ -175,6 +348,7 @@ public class CalcGUI extends ScientificCalc {
                 }
                 operation = op;
                 flagOverwrite = true;
+                flagHasOverwritten = false;
             }
         };
         b0.addActionListener(numActionListener);
@@ -221,6 +395,10 @@ public class CalcGUI extends ScientificCalc {
                         result = tmp1 % tmp2;
                         field.setText(String.valueOf(result));
                 }
+                // reset operation and flag
+                operation = "";
+                flagOverwrite = true;
+                flagHasOverwritten = false;
             }
         });
 
@@ -239,13 +417,13 @@ public class CalcGUI extends ScientificCalc {
             case "+":
                 return addition(x, y);
             case "-":
-                return subtraction(tmp1, tmp2);
+                return subtraction(x, y);
             case "÷":
-                return division(tmp1, tmp2);
+                return division(x, y);
             case "x":
-                return multiplication(tmp1, tmp2);
+                return multiplication(x, y);
             case "mod":
-                return tmp1 % tmp2;
+                return x % y;
             default:
                 return 0;
         }

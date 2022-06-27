@@ -1,7 +1,9 @@
 package com.zipcodewilmington.scientificcalculator;
 
+import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
 import static org.junit.Assert.assertEquals;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -27,7 +29,7 @@ public class ScientificFeaturesTest {
     void TestSwitchSign() {
         ScientificFeatures switchSignSwitch = new ScientificFeatures();
         double switchSignT = switchSignSwitch.switchSign(5);
-        Assertions.assertEquals(-5.0,switchSignT);
+        Assertions.assertEquals(-5.0, switchSignT);
 
     }
 
@@ -35,10 +37,9 @@ public class ScientificFeaturesTest {
     void TestInverse() {
         ScientificFeatures inverseTest = new ScientificFeatures();
         double inverseT = inverseTest.inverse(5);
-        Assertions.assertEquals(0.20,inverseT);
+        Assertions.assertEquals(0.20, inverseT);
 
     }
-
 
 
     @Test
@@ -52,7 +53,7 @@ public class ScientificFeaturesTest {
     void TestCos() {
         ScientificFeatures cosineTest = new ScientificFeatures();
         double cosineT = cosineTest.cos(5);
-        Assertions.assertEquals(0.9961946980917455,cosineT);
+        Assertions.assertEquals(0.9961946980917455, cosineT);
 
     }
 
@@ -66,21 +67,21 @@ public class ScientificFeaturesTest {
     @Test
     void TestInverseSine() {
         ScientificFeatures inverseSineTest = new ScientificFeatures();
-        double inverseSineT = inverseSineTest.inverseSine(50,110);
+        double inverseSineT = inverseSineTest.inverseSine(50, 110);
         Assertions.assertEquals(0.47186183727964187, inverseSineT);
     }
 
     @Test
     void TestInverseCosine() {
         ScientificFeatures inverseCosineTest = new ScientificFeatures();
-        double inverseCosineT = inverseCosineTest.inverseCosine(50,110);
-        Assertions.assertEquals(1.0989344895152549,inverseCosineT);
+        double inverseCosineT = inverseCosineTest.inverseCosine(50, 110);
+        Assertions.assertEquals(1.0989344895152549, inverseCosineT);
     }
 
     @Test
     void TestInverseTangent() {
         ScientificFeatures inverseTangentTest = new ScientificFeatures();
-        double inverseTangentT = inverseTangentTest.inverseTangent(50,110);
+        double inverseTangentT = inverseTangentTest.inverseTangent(50, 110);
         Assertions.assertEquals(0.4266274931268761, inverseTangentT);
     }
 
@@ -110,7 +111,7 @@ public class ScientificFeaturesTest {
     void TestLn() {
         ScientificFeatures naturalLogTest = new ScientificFeatures();
         double naturalLogT = naturalLogTest.ln(5);
-        Assertions.assertEquals(1.6094379124341003,naturalLogT);
+        Assertions.assertEquals(1.6094379124341003, naturalLogT);
 
     }
 
@@ -118,7 +119,7 @@ public class ScientificFeaturesTest {
     void TestInverseLn() {
         ScientificFeatures inverseNaturalLogTest = new ScientificFeatures();
         double inverseNaturalLogT = inverseNaturalLogTest.inverseLn(5);
-        Assertions.assertEquals(148.41315910257657,inverseNaturalLogT);
+        Assertions.assertEquals(148.41315910257657, inverseNaturalLogT);
     }
 
     @Test
@@ -129,10 +130,22 @@ public class ScientificFeaturesTest {
     }
 
     @Test
-    void TestCube(){
-        ScientificFeatures cubeTest = new ScientificFeatures();
-        double cubeT = cubeTest.cube(5);
-        Assertions.assertEquals(125.0, cubeT);
+    public void testCube() {
+        ScientificFeatures objCalcUnderTest = new ScientificFeatures();
+        double number1 = 2;
+        double expectedResult = 8;
+        double result = objCalcUnderTest.cube(number1);
+        Assert.assertEquals(expectedResult, result, 0.010);
     }
+
+    @Test
+    public void testCubeRoot() {
+        ScientificFeatures objCalcUnderTest = new ScientificFeatures();
+        double number1 = 9;
+        double expectedResult = 2.080083823051904;
+        double result = objCalcUnderTest.cubeRoot(number1);
+        Assert.assertEquals(expectedResult, result, 0.010);
+    }
+
 
 }

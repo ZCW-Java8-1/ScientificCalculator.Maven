@@ -44,49 +44,63 @@ public class Console {
                 System.out.println("Not a number");
                 reRun.calcRun();
             }
-                System.out.println("Enter math operator to use for this calculation");
+            System.out.println("Enter math operator to use for this calculation");
 
             // try catch method for operator
-                operator = Calculator.next();
-
-
-            //try catch method for second number
-                System.out.print("Enter second number ");
-            try {
-                secondNumber = Calculator.nextDouble();
-            } catch (InputMismatchException a) {
-                System.out.println("Not a number");
-
-            }
+            operator = Calculator.next();
 
 
             // switch statement for the operator
             switch (operator) {
                 case "+":
                     CoreFeatures additionFormula = new CoreFeatures();
+                    //try catch method for second number
                     System.out.print("Enter second number ");
-                    secondNumber = Calculator.nextDouble();
+                    try {
+                        secondNumber = Calculator.nextDouble();
+                    } catch (InputMismatchException a) {
+                        System.out.println("Not a number");
+
+                    }
                     String additionFormulaRead = String.valueOf(additionFormula.add(firstNumber, secondNumber));
                     System.out.println(additionFormulaRead);
                     break;
                 case "-":
                     CoreFeatures subtractionFormula = new CoreFeatures();
+                    //try catch method for second number
                     System.out.print("Enter second number ");
-                    secondNumber = Calculator.nextDouble();
+                    try {
+                        secondNumber = Calculator.nextDouble();
+                    } catch (InputMismatchException a) {
+                        System.out.println("Not a number");
+
+                    }
                     String subtractionFormulaRead = String.valueOf(subtractionFormula.subtract(firstNumber, secondNumber));
                     System.out.println(subtractionFormulaRead);
                     break;
                 case "/":
                     CoreFeatures divisionFormula = new CoreFeatures();
+                    //try catch method for second number
                     System.out.print("Enter second number ");
-                    secondNumber = Calculator.nextDouble();
+                    try {
+                        secondNumber = Calculator.nextDouble();
+                    } catch (InputMismatchException a) {
+                        System.out.println("Not a number");
+
+                    }
                     String divisionFormulaRead = String.valueOf(divisionFormula.div(firstNumber, secondNumber));
                     System.out.println(divisionFormulaRead);
                     break;
                 case "*":
                     CoreFeatures multiplyFormula = new CoreFeatures();
+                    //try catch method for second number
                     System.out.print("Enter second number ");
-                    secondNumber = Calculator.nextDouble();
+                    try {
+                        secondNumber = Calculator.nextDouble();
+                    } catch (InputMismatchException a) {
+                        System.out.println("Not a number");
+
+                    }
                     String multiplyFormulaRead = String.valueOf(multiplyFormula.mult(firstNumber, secondNumber));
                     System.out.println(multiplyFormulaRead);
                     break;
@@ -136,22 +150,40 @@ public class Console {
                     break;
                 case "invsine":
                     ScientificFeatures arcSine = new ScientificFeatures();
+                    //try catch method for second number
                     System.out.print("Enter second number ");
-                    secondNumber = Calculator.nextDouble();
+                    try {
+                        secondNumber = Calculator.nextDouble();
+                    } catch (InputMismatchException a) {
+                        System.out.println("Not a number");
+
+                    }
                     String arcSineRead = String.valueOf(arcSine.inverseSine(firstNumber, secondNumber));
                     System.out.println(arcSineRead);
                     break;
                 case "invcosine":
                     ScientificFeatures arcCosine = new ScientificFeatures();
+                    //try catch method for second number
                     System.out.print("Enter second number ");
-                    secondNumber = Calculator.nextDouble();
+                    try {
+                        secondNumber = Calculator.nextDouble();
+                    } catch (InputMismatchException a) {
+                        System.out.println("Not a number");
+
+                    }
                     String arcCosineRead = String.valueOf(arcCosine.inverseCosine(firstNumber, secondNumber));
                     System.out.println(arcCosineRead);
                     break;
                 case "invtangent":
                     ScientificFeatures arcTan = new ScientificFeatures();
+                    //try catch method for second number
                     System.out.print("Enter second number ");
-                    secondNumber = Calculator.nextDouble();
+                    try {
+                        secondNumber = Calculator.nextDouble();
+                    } catch (InputMismatchException a) {
+                        System.out.println("Not a number");
+
+                    }
                     String arcTanFormula = String.valueOf(arcTan.inverseTangent(firstNumber, secondNumber));
                     System.out.println(arcTanFormula);
                     break;
@@ -163,16 +195,16 @@ public class Console {
                 default:
                     System.out.println("Incorrect operator");
                     // Exit code
-                        System.out.println("Do you want to exit? \nPlease enter Y or press N to clear the display");
-                        String inputEscRead = inputEsc.next();
-                        if (inputEscRead.equalsIgnoreCase("Y")) {
-                            onButton = false;
-                        } else if (inputEscRead.equalsIgnoreCase("N")) {
-                            reRun.calcRun();
-                        } else {
-                            System.out.println("Please enter the correct letter");
-                        }
-                        break;
+                    System.out.println("Do you want to exit? \nPlease enter Y or press N to clear the display");
+                    String inputEscRead = inputEsc.next();
+                    if (inputEscRead.equalsIgnoreCase("Y")) {
+                        onButton = false;
+                    } else if (inputEscRead.equalsIgnoreCase("N")) {
+                        reRun.calcRun();
+                    } else {
+                        System.out.println("Please enter the correct letter");
+                    }
+                    break;
             }
 
             // Exit Code

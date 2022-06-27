@@ -100,10 +100,11 @@ public class ScientificFeatures {
         return result;
     }
 
-    public double cubeRoot(double num1){
-        result =  Math.cbrt(num1);
+    public double cubeRoot(double num1) {
+        result = Math.cbrt(num1);
         return result;
     }
+
     public double cube(double number1) {
         result = number1 * number1 * number1;
         return result;

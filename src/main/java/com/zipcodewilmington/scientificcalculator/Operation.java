@@ -75,7 +75,7 @@ public class Operation {
         return result;
     }
 
-    //trig function
+    // Trig function
     public static double trigOp(String operation, double displayVal, boolean degree) {
         double n = 0, result = 0;
 

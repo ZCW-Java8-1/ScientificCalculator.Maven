@@ -122,30 +122,10 @@ public class ScientificFeaturesTest {
         Assertions.assertEquals(148.41315910257657, inverseNaturalLogT);
     }
 
-    @Test
-    void TestCubeRoot() {
-        ScientificFeatures cubeRootTest = new ScientificFeatures();
-        double cubeRootT = cubeRootTest.cubeRoot(125);
-        Assertions.assertEquals(5.0, cubeRootT);
-    }
 
-    @Test
-    public void testCube() {
-        ScientificFeatures objCalcUnderTest = new ScientificFeatures();
-        double number1 = 2;
-        double expectedResult = 8;
-        double result = objCalcUnderTest.cube(number1);
-        Assert.assertEquals(expectedResult, result, 0.010);
-    }
 
-    @Test
-    public void testCubeRoot() {
-        ScientificFeatures objCalcUnderTest = new ScientificFeatures();
-        double number1 = 9;
-        double expectedResult = 2.080083823051904;
-        double result = objCalcUnderTest.cubeRoot(number1);
-        Assert.assertEquals(expectedResult, result, 0.010);
-    }
+
+
 
 
 }

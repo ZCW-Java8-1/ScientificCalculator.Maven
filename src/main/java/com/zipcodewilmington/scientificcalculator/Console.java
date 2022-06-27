@@ -110,12 +110,12 @@ public class Console {
                     System.out.println(squareFormulaPrint);
                     break;
                 case "***":
-                    ScientificFeatures cubeFormula = new ScientificFeatures();
+                    CubeFeatures cubeFormula = new CubeFeatures();
                     String cubeFormulaPrint = String.valueOf(cubeFormula.cube(firstNumber));
                     System.out.println(cubeFormulaPrint);
                     break;
                 case "***/":
-                    ScientificFeatures cubeRtFormula = new ScientificFeatures();
+                    CubeRootFeatures cubeRtFormula = new CubeRootFeatures();
                     String cubeRtFormulaPrint = String.valueOf(cubeRtFormula.cubeRoot(firstNumber));
                     System.out.println(cubeRtFormulaPrint);
                     break;

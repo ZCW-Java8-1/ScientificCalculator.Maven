@@ -1,6 +1,7 @@
 package com.zipcodewilmington.scientificcalculator;
 
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -24,7 +25,7 @@ public class Console {
         ScientificFeatures switchSignFormula = new ScientificFeatures();
         Scanner inputEsc = new Scanner(System.in);
         CoreFeatures clear = new CoreFeatures();
-
+        Console reRun = new Console();
 
         while (onButton) {
             // loop wrong operator true
@@ -37,17 +38,31 @@ public class Console {
             System.out.println();
             // print enter number
             System.out.print("Enter first number ");
-            firstNumber = Calculator.nextDouble();
+
+            // try catch method for first number
+
+            try {
+                firstNumber = Calculator.nextDouble();
+            } catch (InputMismatchException a) {
+                System.out.println("Not a number");
+                reRun.calcRun();
+            }
+                System.out.println("Enter math operator to use for this calculation");
+
+            // try catch method for operator
+                operator = Calculator.next();
 
 
-            System.out.println("Enter math operator to use for this calculation");
-            operator = Calculator.next();
+            //try catch method for second number
+                System.out.print("Enter second number ");
+            try {
+                secondNumber = Calculator.nextDouble();
+            } catch (InputMismatchException a) {
+                System.out.println("Not a number");
 
-            System.out.print("Enter second number ");
-            secondNumber = Calculator.nextDouble();
+            }
 
-            // Attempt to handle the error, but need a try/catch
-
+                // Attempt to handle the error, but need a try/catch
 
 
                 switch (operator) {
@@ -76,9 +91,6 @@ public class Console {
                         String squareFormulaPrint = String.valueOf((int) squareFormula.square(firstNumber));
                         System.out.println(squareFormulaPrint);
                         break;
-                    case "***":
-                        ScientificFeatures cubeFormula = new ScientificFeatures();
-                        String cubeFormulaPrint = String.valueOf((int) cubeFormula.cubeRoot(firstNumber));
                     case "+/-":
                         String switchSignFomrulaRead = String.valueOf((int) switchSignFormula.switchSign(firstNumber));
                         System.out.println(switchSignFomrulaRead);
@@ -136,7 +148,6 @@ public class Console {
                             if (inputEscRead.equalsIgnoreCase("Y")) {
                                 onButton = false;
                             } else if (inputEscRead.equalsIgnoreCase("N")) {
-                                clear.clear();
                                 wrongOperator = false;
                             } else {
                                 System.out.println("Please enter the correct letter");
@@ -148,6 +159,7 @@ public class Console {
                 String inputEscRead = inputEsc.next();
                 if (inputEscRead.equalsIgnoreCase("Y")) {
                     onButton = false;
+                    reRun.calcRun();
                 } else if (inputEscRead.equalsIgnoreCase("N")) {
                     System.out.println("\033[H\033[2J");
                     System.out.flush();
@@ -159,7 +171,6 @@ public class Console {
         }
 
     }
-
 
 
 

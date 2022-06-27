@@ -9,12 +9,5 @@ import org.junit.jupiter.api.Test;
  */
 public class TestMainApplication {
 
-    @Test
-    void TestMain() {
-        ScientificFeatures inverseTest = new ScientificFeatures();
-        double inverseT = inverseTest.inverse(0);
-        Assertions.assertEquals("Err",inverseT);
-
-    }
 
 }

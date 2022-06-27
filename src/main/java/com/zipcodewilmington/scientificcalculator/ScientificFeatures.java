@@ -23,7 +23,6 @@ public class ScientificFeatures {
     public double inverse(double num1) {
         result = 1 / num1;
         if (num1 == 0) {
-            // Should be error
             System.out.println("Err");
         } else {
             return result;
@@ -101,6 +100,14 @@ public class ScientificFeatures {
         return result;
     }
 
+    public double cubeRoot(double num1){
+        result =  Math.cbrt(num1);
+        return result;
+    }
+    public double cube(double number1) {
+        result = number1 * number1 * number1;
+        return result;
+    }
 
 
 }

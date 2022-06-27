@@ -123,15 +123,16 @@ public class ScientificFeaturesTest {
 
     @Test
     void TestCubeRoot() {
-
+        ScientificFeatures cubeRootTest = new ScientificFeatures();
+        double cubeRootT = cubeRootTest.cubeRoot(125);
+        Assertions.assertEquals(5.0, cubeRootT);
     }
 
     @Test
     void TestCube(){
-
+        ScientificFeatures cubeTest = new ScientificFeatures();
+        double cubeT = cubeTest.cube(5);
+        Assertions.assertEquals(125.0, cubeT);
     }
-
-
-
 
 }

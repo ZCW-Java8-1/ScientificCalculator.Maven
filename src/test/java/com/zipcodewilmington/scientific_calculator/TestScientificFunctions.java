@@ -19,6 +19,7 @@ public class TestScientificFunctions {
 
     @Test
     public void testCos(){
+        objSciCalcTest = new ScientificCalc ();
         double randomNum = (Math.random() * 10);
         double expectedResult = Math.cos(randomNum);
         double result = objSciCalcTest.cos(randomNum);
@@ -27,6 +28,7 @@ public class TestScientificFunctions {
 
     @Test
     public void testCosHard(){
+        objSciCalcTest = new ScientificCalc ();
         double num1 = 1;
         double expectedResult = Math.cos(1);
         double result = objSciCalcTest.cos(1);
@@ -35,6 +37,7 @@ public class TestScientificFunctions {
 
     @Test
     public void testSine(){
+        objSciCalcTest = new ScientificCalc ();
         double randomNum = (Math.random() * 10);
         double expectedResult = Math.sin(randomNum);
         double result = objSciCalcTest.sin(randomNum);
@@ -43,6 +46,7 @@ public class TestScientificFunctions {
 
     @Test
     public void testTan(){
+        objSciCalcTest = new ScientificCalc ();
         double randomNum = (Math.random() * 10);
         double expectedResult = Math.tan(randomNum);
         double result = objSciCalcTest.tan(randomNum);
@@ -51,6 +55,7 @@ public class TestScientificFunctions {
 
     @Test
     public void testInvSine(){
+        objSciCalcTest = new ScientificCalc ();
         double randomNum = Math.random();
         double expectedResult = Math.asin(randomNum);
         double result = objSciCalcTest.invSin(randomNum);
@@ -59,6 +64,7 @@ public class TestScientificFunctions {
 
     @Test
     public void testInvCos(){
+        objSciCalcTest = new ScientificCalc ();
         double randomNum = Math.random();
         double expectedResult = Math.acos(randomNum);
         double result = objSciCalcTest.invCos(randomNum);
@@ -67,6 +73,7 @@ public class TestScientificFunctions {
 
     @Test
     public void testInvTan(){
+        objSciCalcTest = new ScientificCalc ();
         double randomNum = Math.random();
         double expectedResult = Math.atan(randomNum);
         double result = objSciCalcTest.invTan(randomNum);

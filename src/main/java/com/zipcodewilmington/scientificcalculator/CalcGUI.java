@@ -159,7 +159,8 @@ public class CalcGUI extends ScientificCalc {
                 }
                 double x = Double.valueOf(field.getText());
                 if (x == 0) {
-
+                    field.setText("ERR");
+                    flagIsError = true;
                 }
                 field.setText(String.valueOf(inverse(x)));
             }
@@ -338,7 +339,7 @@ public class CalcGUI extends ScientificCalc {
                 flagHasOverwritten = false;
                 if (Double.isNaN(result)) {
                     flagIsError = true;
-                    field.setText("Err");
+                    field.setText("ERR");
                 }
             }
         });

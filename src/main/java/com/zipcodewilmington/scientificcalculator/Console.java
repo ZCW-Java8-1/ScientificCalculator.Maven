@@ -132,7 +132,13 @@ public class Console {
                 case "inverse":
                     ScientificFeatures inverseFormula = new ScientificFeatures();
                     String inverseFormulaRead = String.valueOf(inverseFormula.inverse(firstNumber));
-                    System.out.println(inverseFormulaRead);
+                    if(inverseFormula.equals("0"))
+                    try {
+                        System.out.println(inverseFormulaRead);
+                    } catch (Exception e) {
+                        System.out.println("Err");
+
+                }
                     break;
                 case "sine":
                     ScientificFeatures sineFormula = new ScientificFeatures();

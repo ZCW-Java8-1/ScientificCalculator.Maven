@@ -94,6 +94,7 @@ public class Console {
                     ScientificFeatures squareFormula = new ScientificFeatures();
                     String squareFormulaPrint = String.valueOf(squareFormula.square(firstNumber));
                     System.out.println(squareFormulaPrint);
+                    break;
                 case "***":
                     ScientificFeatures cubeFormula = new ScientificFeatures();
                     String cubeFormulaPrint = String.valueOf(cubeFormula.cube(firstNumber));
@@ -103,6 +104,7 @@ public class Console {
                     ScientificFeatures cubeRtFormula = new ScientificFeatures();
                     String cubeRtFormulaPrint = String.valueOf(cubeRtFormula.cubeRoot(firstNumber));
                     System.out.println(cubeRtFormulaPrint);
+                    break;
                 case "+/-":
                     String switchSignFormulaRead = String.valueOf(switchSignFormula.switchSign(firstNumber));
                     System.out.println(switchSignFormulaRead);
@@ -160,6 +162,7 @@ public class Console {
                     break;
                 default:
                     System.out.println("Incorrect operator");
+                    // Exit code
                         System.out.println("Do you want to exit? \nPlease enter Y or press N to clear the display");
                         String inputEscRead = inputEsc.next();
                         if (inputEscRead.equalsIgnoreCase("Y")) {

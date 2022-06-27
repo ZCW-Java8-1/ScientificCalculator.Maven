@@ -29,11 +29,18 @@ public class Console {
         return userInput;
     }
 
-    public static Integer getIntegerInput(String prompt) {
-        return null;
+    public static int getIntegerInput(String prompt) {
+        Scanner scanner = new Scanner(System.in);
+        println(prompt);
+        String userInput = String.valueOf(scanner.nextInt());
+        return Integer.parseInt(userInput);
     }
 
-    public static Double getDoubleInput(String prompt) {
-        return null;
+    public static double getDoubleInput(String prompt) {
+        //while (!prompt.)
+        Scanner scanner = new Scanner(System.in);
+        println(prompt);
+        double userInput = scanner.nextDouble();
+        return userInput;
     }
 }

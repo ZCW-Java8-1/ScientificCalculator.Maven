@@ -180,6 +180,21 @@ public class CalcGUI extends ScientificCalc {
         JButton bEqual = new JButton("=");
         JButton bMod = new JButton("mod");
         JButton bBackSpace = new JButton("←");
+        bBackSpace.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String txt = field.getText();
+                if (txt.length() == 1) {
+                    field.setText("0");
+                    flagOverwrite = true;
+                    flagHasOverwritten = false;
+                } else if (txt.charAt(txt.length() - 2) == '.') {
+                    field.setText(txt.substring(0, txt.length() - 2));
+                } else {
+                    field.setText(txt.substring(0, txt.length() - 1));
+                }
+            }
+        });
 
 
         opPanel.add(bBackSpace);

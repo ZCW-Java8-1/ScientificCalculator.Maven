@@ -134,7 +134,7 @@ public class TestScientificFunctions {
     }
 
     @Test
-    public void testinvLog() {
+    public void testInvLog() {
         double randomNum = (Math.random() * 10);
         double expectedResult = Math.pow(10, randomNum);
         double result = objSciCalcTest.invLog(randomNum);
@@ -142,7 +142,7 @@ public class TestScientificFunctions {
     }
 
     @Test
-    public void testlnFunc() {
+    public void testLnFunc() {
         double randomNum = (Math.random() * 10);
         double expectedResult = Math.log(randomNum);
         double result = objSciCalcTest.natLog(randomNum);
@@ -170,7 +170,7 @@ public class TestScientificFunctions {
     public void factorial() {
         long testNum = 8;
         long expectedResult = 40320;
-        long result = objSciCalcTest.factorial(testNum);
+        double result = objSciCalcTest.factorial(testNum);
         Assert.assertEquals(expectedResult, result, 0.00000000d);
     }
 
@@ -178,7 +178,7 @@ public class TestScientificFunctions {
     public void factorialFail() {
         long testNum = 8;
         long expectedResult = 94032;
-        long result = objSciCalcTest.factorial(3);
+        double result = objSciCalcTest.factorial(3);
         Assert.assertNotEquals(expectedResult, result);
     }
 

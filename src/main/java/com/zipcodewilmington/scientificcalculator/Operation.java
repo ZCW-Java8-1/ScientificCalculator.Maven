@@ -2,6 +2,8 @@ package com.zipcodewilmington.scientificcalculator;
 import java.lang.Math;
 import java.sql.SQLOutput;
 
+import static java.lang.Math.PI;
+
 public class Operation {
     // Two number operations
     public static double twoNumOp(String operation, double displayVal) {
@@ -68,6 +70,7 @@ public class Operation {
         else if (operation.equals("arcsin")) result = Math.asin(n);
         else if (operation.equals("arccos")) result = Math.acos(n);
         else if (operation.equals("arctan")) result = Math.atan(n);
+        else if (operation.equals("circ")) result = circ(n);
 
         return result;
     }
@@ -152,6 +155,10 @@ public class Operation {
     public static double sq(double n) {
 
         return n * n;
+    }
+    public static double circ(double n) {
+
+        return 2 * PI *n;
     }
 
     // Inverse of the number

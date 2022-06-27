@@ -17,16 +17,12 @@ public class Console {
 
     public static String getStringInput(String prompt) {
         Scanner scanner = new Scanner(System.in);
-        println(prompt);
+        print(prompt);
         String userInput = scanner.nextLine();
         return userInput;
     }
 
     public static Integer getIntegerInput(String prompt) {
-        return null;
-    }
-
-    public static Double getDoubleInput(String prompt) {
         return null;
     }
 }

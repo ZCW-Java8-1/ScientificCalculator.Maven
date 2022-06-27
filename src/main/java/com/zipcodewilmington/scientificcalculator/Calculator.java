@@ -46,6 +46,7 @@ public class Calculator {
             else if (operator.equals("sqrt")) displayVal = Operation.oneNumOp("sqrt", displayVal);
             else if (operator.equals("inverse")) displayVal = Operation.oneNumOp("inverse", displayVal);
             else if (operator.equals("invert")) displayVal = Operation.oneNumOp("invert", displayVal);
+            else if (operator.equals("circ")) displayVal = Operation.oneNumOp("circ", displayVal);
             else if (operator.equals("sin")) displayVal = Operation.trigOp("sin", displayVal, degree);
             else if (operator.equals("cos")) displayVal = Operation.trigOp("cos", displayVal, degree);
             else if (operator.equals("tan")) displayVal = Operation.trigOp("tan", displayVal, degree);
@@ -119,5 +120,6 @@ public class Calculator {
         System.out.println("Reset memory: MC");
         System.out.println("Recall the current value from memory to display: MRC");
         System.out.println("Switch trig unit mode(Degree, Radians): switch trig unit");
+        System.out.println("Circumference of a circle: circ");
     }
 }

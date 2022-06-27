@@ -1,3 +1,4 @@
+
 package com.zipcodewilmington.scientific_calculator;
 
 
@@ -6,6 +7,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class TestScientificFunctionality {
+
     ScientificFunctionality sciFunction = new ScientificFunctionality();
     @Test
     public void testCalcLog() {
@@ -33,6 +35,7 @@ public class TestScientificFunctionality {
 
     @Test
     public void testCalcInverseNaturalLog() {
+
         double expected = 20.085536923187668;
         double input = 3;
         double actual = sciFunction.calcInverseNaturalLog(input);

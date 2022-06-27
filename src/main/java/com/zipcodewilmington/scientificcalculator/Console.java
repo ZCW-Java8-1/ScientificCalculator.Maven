@@ -12,15 +12,15 @@ public class Console {
     private boolean onButton;
     private double firstNumber;
     private double secondNumber;
+    private String operator;
 
 
     public void calcRun() {
 
 
         onButton = true;
-        String operator;
         Scanner Calculator = new Scanner(System.in);
-        ScientificFeatures switchSignFormula = new ScientificFeatures();
+
         Scanner inputEsc = new Scanner(System.in);
         Console reRun = new Console();
 
@@ -120,6 +120,7 @@ public class Console {
                     System.out.println(cubeRtFormulaPrint);
                     break;
                 case "+/-":
+                    ScientificFeatures switchSignFormula = new ScientificFeatures();
                     String switchSignFormulaRead = String.valueOf(switchSignFormula.switchSign(firstNumber));
                     System.out.println(switchSignFormulaRead);
                     break;

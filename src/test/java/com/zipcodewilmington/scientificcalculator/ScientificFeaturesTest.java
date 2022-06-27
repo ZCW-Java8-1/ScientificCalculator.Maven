@@ -123,9 +123,4 @@ public class ScientificFeaturesTest {
     }
 
 
-
-
-
-
-
 }

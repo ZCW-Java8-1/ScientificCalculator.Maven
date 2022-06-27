@@ -14,6 +14,7 @@ public class CalcGUI extends ScientificCalc {
     private String operation;
     private Boolean flagOverwrite;
     private Boolean flagHasOverwritten;
+    private Boolean operatorLastInput;
 
     public CalcGUI() {
         super();
@@ -23,6 +24,7 @@ public class CalcGUI extends ScientificCalc {
         operation = "";
         flagOverwrite = false;
         flagHasOverwritten = false;
+        operatorLastInput = false;
         init();
     }
 
@@ -45,6 +47,30 @@ public class CalcGUI extends ScientificCalc {
         //calcPanel.setPreferredSize(new Dimension(200, 200));
         calcPanel.setLayout(new GridLayout(7, 3));
 
+        Action opActionListener = new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JButton button = (JButton) e.getSource();
+                String op = button.getText();
+                if (op.equals("xʸ")) {
+                    op = "pow";
+                }
+                if (operatorLastInput) {
+                    operation = op;
+                    operatorLastInput = true;
+                    return;
+                } else if (operation != "") {
+                    tmp1 = handleOperation(operation, tmp1, Double.valueOf(field.getText()));
+                    field.setText(String.valueOf(tmp1));
+                } else {
+                    tmp1 = Double.valueOf(field.getText());
+                }
+                operation = op;
+                operatorLastInput = true;
+                flagOverwrite = true;
+                flagHasOverwritten = false;
+            }
+        };
 
         JButton bMPlus = new JButton("M+");
         bMPlus.addActionListener(new ActionListener() {
@@ -97,6 +123,7 @@ public class CalcGUI extends ScientificCalc {
             }
         });
         JButton bExpo = new JButton("xʸ");
+        bExpo.addActionListener(opActionListener);
         // Division by 0 possible!
         JButton bInv = new JButton("1/x");
         bInv.addActionListener(new ActionListener() {
@@ -172,7 +199,6 @@ public class CalcGUI extends ScientificCalc {
         //opPanel.setPreferredSize(new Dimension(70, 200));
         opPanel.setLayout(new GridLayout(7, 1));
 
-
         JButton bDiv = new JButton("÷");
         JButton bMul = new JButton("x");
         JButton bMinus = new JButton("-");
@@ -195,6 +221,72 @@ public class CalcGUI extends ScientificCalc {
                 }
             }
         });
+        // listener for number pad buttons
+        Action numActionListener = new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JButton button = (JButton) e.getSource();
+                if (flagOverwrite && !flagHasOverwritten) {
+                    field.setText(button.getText());
+                    flagHasOverwritten = true;
+                } else {
+                    field.setText(field.getText().concat(button.getText()));
+                }
+                operatorLastInput = false;
+            }
+        };
+
+        b0.addActionListener(numActionListener);
+        b1.addActionListener(numActionListener);
+        b2.addActionListener(numActionListener);
+        b3.addActionListener(numActionListener);
+        b4.addActionListener(numActionListener);
+        b5.addActionListener(numActionListener);
+        b6.addActionListener(numActionListener);
+        b7.addActionListener(numActionListener);
+        b8.addActionListener(numActionListener);
+        b9.addActionListener(numActionListener);
+        bDiv.addActionListener(opActionListener);
+        bPlus.addActionListener(opActionListener);
+        bMinus.addActionListener(opActionListener);
+        bMod.addActionListener(opActionListener);
+        bMul.addActionListener(opActionListener);
+        bEqual.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                tmp2 = Double.valueOf(field.getText());
+                switch (operation) {
+                    case "+":
+                        result = addition(tmp1, tmp2);
+                        field.setText(String.valueOf(result));
+                        break;
+                    case "-":
+                        result = subtraction(tmp1, tmp2);
+                        field.setText(String.valueOf(result));
+                        break;
+                    case "÷":
+                        result = division(tmp1, tmp2);
+                        field.setText(String.valueOf(result));
+                        break;
+                    case "x":
+                        result = multiplication(tmp1, tmp2);
+                        field.setText(String.valueOf(result));
+                        break;
+                    case "mod":
+                        result = tmp1 % tmp2;
+                        field.setText(String.valueOf(result));
+                        break;
+                    case "pow":
+                        result = exponent(tmp1, tmp2);
+                        field.setText(String.valueOf(result));
+                }
+                // reset operation and flag
+                operation = "";
+                flagOverwrite = true;
+                flagHasOverwritten = false;
+            }
+        });
+
 
 
         opPanel.add(bBackSpace);
@@ -336,86 +428,7 @@ public class CalcGUI extends ScientificCalc {
         leftPanel.add(bTrigMode);
         leftPanel.add(bPi);
         //==================================================================
-        // listener for number pad buttons
-        Action numActionListener = new AbstractAction() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                JButton button = (JButton) e.getSource();
-                if (flagOverwrite && !flagHasOverwritten) {
-                    field.setText(button.getText());
-                    flagHasOverwritten = true;
-                } else {
-                    field.setText(field.getText().concat(button.getText()));
-                }
-            }
-        };
-        // listener for operator buttons
-        Action opActionListener = new AbstractAction() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                JButton button = (JButton) e.getSource();
-                String op = button.getText();
-                if (operation != "") {
-                    tmp1 = handleOperation(operation, tmp1, Double.valueOf(field.getText()));
-                    field.setText(String.valueOf(tmp1));
-                } else {
-                    tmp1 = Double.valueOf(field.getText());
-                }
-                operation = op;
-                flagOverwrite = true;
-                flagHasOverwritten = false;
-            }
-        };
-        b0.addActionListener(numActionListener);
-        b1.addActionListener(numActionListener);
-        b2.addActionListener(numActionListener);
-        b3.addActionListener(numActionListener);
-        b4.addActionListener(numActionListener);
-        b5.addActionListener(numActionListener);
-        b6.addActionListener(numActionListener);
-        b7.addActionListener(numActionListener);
-        b8.addActionListener(numActionListener);
-        b9.addActionListener(numActionListener);
-        bDiv.addActionListener(opActionListener);
-        bPlus.addActionListener(opActionListener);
-        bMinus.addActionListener(opActionListener);
-        bMod.addActionListener(opActionListener);
-        bMul.addActionListener(opActionListener);
-        bEqual.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                switch (operation) {
-                    case "+":
-                        tmp2 = Double.valueOf(field.getText());
-                        result = addition(tmp1, tmp2);
-                        field.setText(String.valueOf(result));
-                        break;
-                    case "-":
-                        tmp2 = Double.valueOf(field.getText());
-                        result = subtraction(tmp1, tmp2);
-                        field.setText(String.valueOf(result));
-                        break;
-                    case "÷":
-                        tmp2 = Double.valueOf(field.getText());
-                        result = division(tmp1, tmp2);
-                        field.setText(String.valueOf(result));
-                        break;
-                    case "x":
-                        tmp2 = Double.valueOf(field.getText());
-                        result = multiplication(tmp1, tmp2);
-                        field.setText(String.valueOf(result));
-                        break;
-                    case "mod":
-                        tmp2 = Double.valueOf(field.getText());
-                        result = tmp1 % tmp2;
-                        field.setText(String.valueOf(result));
-                }
-                // reset operation and flag
-                operation = "";
-                flagOverwrite = true;
-                flagHasOverwritten = false;
-            }
-        });
+
 
 
         frame.add(calcPanel);
@@ -439,6 +452,8 @@ public class CalcGUI extends ScientificCalc {
                 return multiplication(x, y);
             case "mod":
                 return x % y;
+            case "pow":
+                return exponent(x, y);
             default:
                 return 0;
         }

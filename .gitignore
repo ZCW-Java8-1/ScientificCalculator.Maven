@@ -153,3 +153,5 @@ fabric.properties
 
 #maven build target
 target/
+
+.DS_Store

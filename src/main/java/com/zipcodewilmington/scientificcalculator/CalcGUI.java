@@ -304,27 +304,33 @@ public class CalcGUI extends ScientificCalc {
                 switch (operation) {
                     case "+":
                         result = addition(tmp1, tmp2);
-                        field.setText(String.valueOf(result));
+                        tmp1 = result;
+                        field.setText(convertForDisplayMode(result));
                         break;
                     case "-":
                         result = subtraction(tmp1, tmp2);
-                        field.setText(String.valueOf(result));
+                        tmp1 = result;
+                        field.setText(convertForDisplayMode(result));
                         break;
                     case "÷":
                         result = division(tmp1, tmp2);
-                        field.setText(String.valueOf(result));
+                        tmp1 = result;
+                        field.setText(convertForDisplayMode(result));
                         break;
                     case "x":
                         result = multiplication(tmp1, tmp2);
-                        field.setText(String.valueOf(result));
+                        tmp1 = result;
+                        field.setText(convertForDisplayMode(result));
                         break;
                     case "mod":
                         result = tmp1 % tmp2;
-                        field.setText(String.valueOf(result));
+                        tmp1 = result;
+                        field.setText(convertForDisplayMode(result));
                         break;
                     case "pow":
                         result = exponent(tmp1, tmp2);
-                        field.setText(String.valueOf(result));
+                        tmp1 = result;
+                        field.setText(convertForDisplayMode(result));
                 }
                 // reset operation and flag
                 operation = "";

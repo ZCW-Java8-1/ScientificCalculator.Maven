@@ -30,7 +30,7 @@ public class Console {
             System.out.println("Type the function within the ().");
             System.out.println("For addition(+), subtraction(-), division(/), or multiplication(*)");
             System.out.println("For the square(**), square-root(**/), cube(***), cube-root(***/), switch-sign(+/-) or factorial(fac)");
-            System.out.println("For the inverse, sine, cosine, tan, invsine, incosine or invtangent, write as they are presented");
+            System.out.println("For the inverse, sine, cosine, tan, invsine, invcosine or invtangent, write as they are presented");
 
             System.out.println();
             // print enter number

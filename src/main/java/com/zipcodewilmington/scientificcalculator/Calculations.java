@@ -20,6 +20,9 @@ public class Calculations {
     }
 
     public static Double division(double value1, double value2) {
+        if (value2 == 0) {
+            return Double.NaN;
+        }
         double quotient = value1 / value2;
         return quotient;
     }
@@ -41,6 +44,9 @@ public class Calculations {
     }
 
     public static Double inverse(double value1) {
+        if (value1 == 0) {
+            return Double.NaN;
+        }
         double ins = 1 / value1;
         return ins;
     }

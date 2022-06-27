@@ -5,6 +5,7 @@ import javax.xml.crypto.dsig.spec.DigestMethodParameterSpec;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.math.BigInteger;
 import java.text.NumberFormat;
 
 public class CalcGUI extends ScientificCalc {
@@ -15,6 +16,7 @@ public class CalcGUI extends ScientificCalc {
     private Boolean flagOverwrite;
     private Boolean flagHasOverwritten;
     private Boolean operatorLastInput;
+    private Boolean flagIsError;
 
     public CalcGUI() {
         super();
@@ -25,6 +27,7 @@ public class CalcGUI extends ScientificCalc {
         flagOverwrite = false;
         flagHasOverwritten = false;
         operatorLastInput = false;
+        flagIsError = false;
         init();
     }
 
@@ -457,6 +460,38 @@ public class CalcGUI extends ScientificCalc {
             default:
                 return 0;
         }
+    }
+
+    private String convertForDisplayMode(double num) {
+        String display = getDisplayMode();
+        switch(display) {
+            case "DEC": {
+                return String.valueOf(num);
+            }
+            case "BIN": {
+                return Long.toBinaryString(Double.doubleToRawLongBits(num));
+            }
+            case "OCT": {
+                return Long.toOctalString(Double.doubleToRawLongBits(num));
+            }
+            case "HEX": {
+                return Double.toHexString(num);
+            }
+        }
+        return String.valueOf(num);
+    }
+
+    private Double toDouble(String numStr) {
+        String displayMode = getDisplayMode();
+        switch(displayMode) {
+            case "BIN":
+               return Double.longBitsToDouble(new BigInteger(numStr, 2).longValue());
+            case "OCT":
+                return Double.valueOf(Integer.parseInt(numStr,8));
+            case "HEX":
+                return Double.longBitsToDouble(new BigInteger(numStr, 16).longValue());
+        }
+        return Double.valueOf(0);
     }
 }
 

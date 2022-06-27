@@ -1,5 +1,6 @@
 package com.zipcodewilmington.scientificcalculator;
 
+import java.io.Console;
 import java.lang.Math;
 
 
@@ -18,56 +19,55 @@ public class Calculator {
 
                 // break keyword terminates the
                 result = add(x, y);
-                System.out.println("one");
+                System.out.printf("adding %.4f and %.4f",x,y);
             }
             // Case 2
             case "-" -> {
                 // Print statement corresponding case
                 result = subtract(x, y);
-                System.out.println("two");
+                System.out.printf("subtracting %.4f from %.4f gives",y,x,result);
             }
 
             // Case 3
             case "*" -> {
                 // Print statement corresponding case
                 result = multiply(x, y);
-                System.out.println("three");
+                System.out.printf("multiplying %.4f by %.4f gives",x,y,result);
             }
             // Case 4
             case "/" -> {
                 // Print statement corresponding case
-                result = divide(x, y);
-                System.out.println("four");
+                result = divide(x,y);
+                System.out.printf("dividing %.4f by %.4f gives %.4f",x,y,result);
             }
             case "square" -> {
                 // Print statement corresponding case
                 result = sqr(x);
-                System.out.println("five");
+                System.out.printf("the square of %.4f is %.4f",x,result);
             }
             case "sqrt" -> {
                 // Print statement corresponding case
                 result = root(x);
-                System.out.println("six");
+                System.out.printf("the square root of %.4f is %.4f",x,result);
             }
             case "1/x" -> {
                 // Print statement corresponding case
                 result = inverse(x);
-                System.out.println("seven");
+                System.out.printf("the inverse of %.4f is %.4f",x,result);
             }
             case "+/-" -> {
                 // Print statement corresponding case
                 result = invertSign(x);
-                System.out.println("eight");
+                System.out.printf("reversed sign: %.4f",result);
             }
             case "x^y" -> {
                 // Print statement corresponding case
                 result = sqrY(x, y);
-                System.out.println("eight");
+                System.out.printf("%.4f to the power of %.4f is %.4f",x,y,result);
             }
             default ->
-
                 // Print statement corresponding case
-                    System.out.println("Err, no match");
+                System.out.println("Err, no match");
         }
         ans = String.format(String.valueOf(result));
 

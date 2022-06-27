@@ -1,5 +1,6 @@
 package com.zipcodewilmington.scientificcalculator;
 
+import javax.swing.*;
 import java.util.Scanner;
 
 /**
@@ -9,7 +10,14 @@ public class MainApplication {
 
     public static void main(String[] args) {
 
-        boolean exit = false;
+        SwingUtilities.invokeLater(new Runnable() {
+                                       public void run() {
+                                           new CalcGUI();
+                                       }
+                                   });
+       /*
+       boolean exit = false;
+
         do {
             Scanner scanner = new Scanner(System.in);
             Console.println("Welcome to my calculator! \nThe current value is 0");
@@ -78,9 +86,11 @@ public class MainApplication {
 
         Console.println("The user input %s as a string", s);
         Console.println("The user input %s as a integer", i);
-        Console.println("The user input %s as a d", d);*/
+        Console.println("The user input %s as a d", d);
             }
         } while (!exit);
 
+    }
+    */
     }
 }

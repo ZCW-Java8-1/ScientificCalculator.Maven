@@ -151,7 +151,6 @@ public class CalcGUI extends ScientificCalc {
         // Division by 0 possible!
         JButton bInv = new JButton("1/x");
         bInv.addActionListener(new ActionListener() {
-
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (flagIsError) {
@@ -161,6 +160,7 @@ public class CalcGUI extends ScientificCalc {
                 if (x == 0) {
                     field.setText("ERR");
                     flagIsError = true;
+                    return;
                 }
                 field.setText(String.valueOf(inverse(x)));
             }
@@ -301,6 +301,9 @@ public class CalcGUI extends ScientificCalc {
         bEqual.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if (flagIsError) {
+                    return;
+                }
                 tmp2 = Double.valueOf(field.getText());
                 switch (operation) {
                     case "+":

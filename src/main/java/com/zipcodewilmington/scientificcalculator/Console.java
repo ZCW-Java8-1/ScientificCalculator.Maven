@@ -165,6 +165,7 @@ public class Console {
                         if (inputEscRead.equalsIgnoreCase("Y")) {
                             onButton = false;
                         } else if (inputEscRead.equalsIgnoreCase("N")) {
+                            reRun.calcRun();
                         } else {
                             System.out.println("Please enter the correct letter");
                         }
